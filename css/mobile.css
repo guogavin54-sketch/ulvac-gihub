@@ -1,20 +1,7 @@
 @media (max-width: 768px) {
   :root {
-    --entry-duration: 500ms;
-    --entry-delay-unit: 0.5ms;
-    --entry-mobile-distance: 8px;
-    --entry-mobile-scale: 1;
-  }
-
-  .hero__title {
-    --entry-duration: 640ms;
-  }
-
-  /* 断点变化发生在观察器回调前时，业务内容也不会短暂隐藏。 */
-  .business [data-reveal-state="pending"],
-  .business [data-reveal-state="playing"] {
-    opacity: 1;
-    animation: none;
+    --entry-duration: 600ms;
+    --entry-mobile-distance: 16px;
   }
 
   :root {
@@ -22,7 +9,7 @@
     --section-space: 32px;
     --section-gap: 24px;
     --story-padding: 16px;
-    --footer-space: 40px;
+    --footer-space: 64px;
   }
 
   .header {
@@ -170,24 +157,63 @@
     font-size: 36px;
   }
 
-  .footer__logo {
-    width: min(100%, 420px);
+  .footer__inner {
+    display: grid;
+    grid-template-areas: "navigation" "brand" "legal";
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .footer__nav {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: var(--space-5);
+    grid-area: navigation;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-6);
+  }
+
+  .footer__nav h2 {
+    display: flex;
+    margin: 0;
+    line-height: 29px;
+  }
+
+  .footer__nav a,
+  .footer__legal a {
+    margin: 0;
+    padding-block: 8px 9px;
+  }
+
+  .footer__nav div > a,
+  .footer__legal a {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .footer__logo {
+    grid-area: brand;
+    width: 100%;
+    aspect-ratio: 361 / 55;
+    margin: var(--footer-space) 0 0;
   }
 
   .footer__legal {
+    grid-area: legal;
     align-items: flex-start;
     flex-direction: column;
     gap: var(--space-4);
-    margin-top: var(--footer-space);
+    margin-top: var(--space-8);
+    padding-top: var(--space-4);
+    border-top: 0;
+    box-shadow: inset 0 1px var(--color-line);
+    line-height: 18px;
+  }
+
+  .footer__legal p {
+    margin: 0;
   }
 
   .footer__legal nav {
-    flex-wrap: wrap;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0;
   }
 }
 
@@ -206,16 +232,6 @@
 
   .world-map {
     min-height: 290px;
-  }
-
-  .footer__nav {
-    grid-template-columns: 1fr;
-  }
-
-  .footer__legal nav {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: var(--space-2);
   }
 }
 
@@ -435,8 +451,7 @@
     height: 27px;
   }
 
-  main .button--large .button__icon img,
-  main .button--large .button__icon::after {
+  main .button--large .button__icon img {
     width: 23px;
     height: 23px;
   }

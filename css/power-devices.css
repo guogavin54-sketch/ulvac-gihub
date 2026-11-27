@@ -1,0 +1,233 @@
+.power-page .about-breadcrumb { flex-wrap: wrap; }
+.power-page .power-hero { padding-block: 48px 24px; }
+.power-page .power-hero h1,
+.power-page .power-inquiry h2 { font-size: 64px; line-height: 1.3; }
+.power-page .power-hero p,
+.power-page .power-section__heading p { margin-top: 16px; font-size: 18px; line-height: 27px; }
+.power-page :is(.power-hero, .power-challenge) p { max-width: 800px; }
+.power-page .power-challenge { padding-block: 24px 64px; }
+.power-page .power-challenge h2 { font-size: 34px; line-height: 44px; }
+.power-page .power-challenge p { margin-top: 24px; }
+
+.power-page .power-panel {
+  display: grid;
+  gap: var(--section-gap);
+  padding: 64px var(--technology-panel-padding);
+  border-radius: var(--radius-xl);
+  background: var(--color-sky);
+}
+.power-page .power-panel h2 { font-size: 48px; line-height: 1.3; }
+.power-page .power-panel h3 { font-size: 22px; line-height: 29px; }
+.power-page .power-equipment {
+  margin-block: 24px 100px;
+  padding-block: 80px;
+  background: var(--technology-surface);
+}
+.power-page .power-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-4);
+}
+.power-page :is(.power-process-card, .power-equipment-card) {
+  min-width: 0;
+  border-radius: var(--radius-lg);
+  background: var(--color-white);
+}
+.power-page .power-process-card,
+.power-page .power-equipment-card__body { padding: var(--technology-card-padding); }
+.power-page .power-grid p { font-size: 15px; line-height: 24px; }
+.power-page .power-process-card p { margin-top: 8px; color: var(--color-muted); }
+.power-page .power-process-card { position: relative; isolation: isolate; }
+.power-page .power-process-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: var(--color-primary);
+  opacity: 0;
+  pointer-events: none;
+}
+@media (hover: hover) {
+  .power-page .power-process-card:hover::before { opacity: 1; }
+  .power-page .power-process-card:hover :is(h3, p) { color: var(--color-white); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .power-page .power-process-card::before { transition: opacity 180ms ease-out; }
+  .power-page .power-process-card :is(h3, p) { transition: color 180ms ease-out; }
+}
+.power-page .power-equipment-card { display: flex; flex-direction: column; overflow: hidden; }
+.power-page .power-equipment-card__media { position: relative; overflow: hidden; }
+@media (prefers-reduced-motion: no-preference) {
+  .power-page .power-equipment-card__image {
+    transform: scale(var(--equipment-image-scale, 1));
+    transition: transform 800ms ease-out;
+  }
+  .power-page .power-equipment-card__media::after {
+    content: var(--equipment-beam-content, none);
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: var(--card-light-gradient);
+    animation: var(--card-light-sweep) both;
+  }
+  .power-page .power-equipment-card:has(.power-learn:focus-visible) {
+    --equipment-image-scale: 1.04;
+    --equipment-beam-content: "";
+  }
+}
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .power-page .power-equipment-card:has(.power-learn:hover) {
+    --equipment-image-scale: 1.04;
+    --equipment-beam-content: "";
+  }
+}
+.power-page .power-products-action { justify-self: start; }
+.power-page .power-products-action .contact-button { height: 41px; }
+.power-page .power-products-action .contact-button__icon { width: 33px; height: 33px; }
+.power-page .power-equipment-card__image { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+.power-page .power-equipment-card__body { flex: 1; display: flex; flex-direction: column; align-items: start; }
+.power-page .power-tag {
+  padding: 4px 16px;
+  border-radius: var(--radius-xs);
+  background: var(--color-navy);
+  color: white;
+  font: 700 16px/24px var(--font-bold);
+}
+.power-page .power-tag--compact { padding-inline: 8px; font-size: 13px; line-height: 18px; }
+.power-page .power-equipment-card h3 { padding-block: 8px; }
+.power-page .power-equipment-card p { min-height: 48px; margin-bottom: 16px; }
+.power-page .power-learn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--color-primary);
+  line-height: 21px;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.power-page .power-learn:is(:hover, :focus-visible) { color: var(--color-button-hover); }
+.power-page a:focus-visible { outline: 2px solid var(--color-button-hover); outline-offset: 3px; }
+
+.power-page .power-inquiry {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  place-items: center;
+  min-height: 400px;
+  overflow: hidden;
+  background: white;
+  color: white;
+  text-align: center;
+}
+.power-page .power-inquiry__background {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: var(--color-white);
+}
+.power-page .power-inquiry__light {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+.power-page .power-inquiry__light::before,
+.power-page .power-inquiry__light::after {
+  content: "";
+  position: absolute;
+  transform: rotate(-66deg);
+  filter: blur(100px);
+}
+.power-page .power-inquiry__light::before {
+  top: -738px;
+  left: calc(50% - 665px);
+  width: 1025px;
+  height: 1804px;
+  border-radius: 50%;
+  background: linear-gradient(transparent, #055da4);
+}
+.power-page .power-inquiry__light::after {
+  top: -871px;
+  left: calc(50% - 295px);
+  width: 494px;
+  height: 2112px;
+  background: linear-gradient(transparent, #44a4f4);
+}
+.power-page .power-inquiry__background::before { z-index: 1; }
+.power-page .power-inquiry__background::after { z-index: 2; }
+.power-page .power-inquiry__background::before,
+.power-page .power-inquiry__background::after {
+  content: "";
+  position: absolute;
+  background-size: 100% 100%;
+}
+.power-page .power-inquiry__background::before {
+  width: 1085px;
+  height: 560px;
+  left: calc(50% - 128px);
+  top: -129px;
+  transform: rotate(-63deg);
+  background-image: url('../img/technology/inquiry-wave.png');
+  mix-blend-mode: color-burn;
+}
+.power-page .power-inquiry__background::after {
+  width: 2571px;
+  height: 1929px;
+  left: calc(50% - 1411px);
+  top: -663px;
+  transform: rotate(55deg);
+  background-image: url('../img/technology/inquiry-texture.png');
+  mix-blend-mode: overlay;
+}
+.power-page .power-inquiry__content { position: relative; left: -2.9%; padding: 42px 24px; }
+.power-page .power-inquiry h2 { color: inherit; }
+.power-page .power-inquiry p { margin: 8px auto 32px; max-width: 427px; font-size: 16px; line-height: 24px; }
+.power-page .power-inquiry .contact-button {
+  display: inline-flex;
+  vertical-align: top;
+  width: 171px;
+  height: 72px;
+  justify-content: flex-end;
+  gap: 24px;
+  padding: 5px 5px 5px 23px;
+  border: 1px solid var(--color-primary);
+  background: var(--color-white);
+  color: var(--color-primary);
+}
+.power-page .power-inquiry .contact-button:is(:hover, :focus-visible) {
+  background-color: var(--color-line);
+  color: var(--color-button-hover);
+  border-color: currentColor;
+  box-shadow: none;
+  transform: none;
+}
+.power-page .power-inquiry .contact-button:focus-visible { outline-color: white; }
+.power-page .power-inquiry .contact-button__icon { width: 60px; height: 60px; background: var(--color-primary); }
+.power-page .power-inquiry .contact-button .contact-button__icon img { width: 36px; height: 36px; content: normal; }
+.power-page .power-inquiry .contact-button { transition: none; }
+@media (prefers-reduced-motion: no-preference) {
+  .power-page .power-inquiry .contact-button { transition: background-color var(--duration-normal) var(--ease-out), color var(--duration-normal) var(--ease-out), border-color var(--duration-normal) var(--ease-out); }
+}
+
+@media (max-width: 1100px) {
+  .power-page .power-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 768px) {
+  .power-page .about-breadcrumb { row-gap: 0; }
+  .power-page .power-hero { padding-block: 32px 16px; }
+  .power-page .power-hero h1, .power-page .power-inquiry h2 { font-size: clamp(44px, 10vw, 64px); }
+  .power-page .power-challenge { padding-block: 24px 40px; }
+  .power-page .power-panel { gap: 32px; padding-block: 40px; }
+  .power-page .power-panel h2 { font-size: clamp(32px, 6vw, 48px); }
+  .power-page .power-equipment { margin-bottom: 64px; }
+  .power-page .power-inquiry__content { left: 0; }
+  .power-page .power-inquiry__background::before { left: 10%; }
+}
+@media (max-width: 600px) {
+  .power-page .power-grid { grid-template-columns: minmax(0, 1fr); }
+  .power-page .power-equipment-card p { min-height: 0; }
+  .power-page .power-inquiry br { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .power-page .contact-button { transition: none; }
+}

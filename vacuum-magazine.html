@@ -1,0 +1,532 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- figma:head-start -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Stories from ULVAC about vacuum technology, society and the people behind it."
+    />
+    <title>Vacuum Magazine | ULVAC</title>
+    <link rel="stylesheet" href="./css/pc.css" />
+    <link rel="stylesheet" href="./css/header.css" />
+    <link rel="stylesheet" href="./css/mobile.css" />
+    <link rel="preload" href="./script.js" as="script" />
+    <link rel=stylesheet href=./css/about.css>
+    <link rel=stylesheet href=./css/vacuum-magazine.css>
+    <link rel=stylesheet href=./css/magazine-articles.css>
+  </head>
+  <body>
+    <!-- figma:body-start -->
+    <header class="site-header" id="site-header">
+      <div class="site-header__glass">
+        <div class="site-header__inner">
+          <div class="utility-nav">
+            <a href="#sustainability">Sustainability</a>
+            <a href="./vacuum-magazine.html">Vacuum Magazine</a>
+            <a class="external-link" href="#investor-relations">
+              Investor Relations
+              <img src="./img/site/51fd2.svg" alt="" aria-hidden="true" />
+            </a>
+            <a href="#support">Support</a>
+            <div class="language">
+              <button
+                class="language__trigger"
+                type="button"
+                aria-expanded="false"
+                aria-controls="language-menu"
+              >
+                <img class="language__globe" src="./img/site/header-language.svg" alt="" aria-hidden="true" />
+                <span>English</span>
+                <img
+                  class="language__chevron"
+                  src="./img/site/header-language-chevron.svg"
+                  alt=""
+                  aria-hidden="true"
+                />
+              </button>
+              <div class="language__menu" id="language-menu">
+                <p class="language__label">Language</p>
+                <a class="language__item is-selected" href="#english">
+                  English
+                  <img src="./img/site/cfca9.svg" alt="" aria-hidden="true" />
+                </a>
+                <a class="language__item" href="#japanese">Japanese</a>
+                <div class="language__divider"></div>
+                <p class="language__label">Regional Sites</p>
+                <a class="language__item" href="#china">China</a>
+                <a class="language__item" href="#korea">Korea</a>
+                <a class="language__item" href="#taiwan">Taiwan</a>
+                <a class="language__item" href="#usa">USA</a>
+                <a class="language__item" href="#europe">Europe</a>
+                <a class="language__item" href="#southeast-asia">Southeast Asia</a>
+                <div class="language__divider"></div>
+                <a class="language__all" href="#group-companies">
+                  All group companies
+                  <img src="./img/site/816e2.svg" alt="" aria-hidden="true" />
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="header-main">
+            <a class="logo" href="./index.html#home" aria-label="ULVAC home">
+              <img src="./img/site/b45c0.png" alt="ULVAC" />
+            </a>
+            <nav class="main-nav" aria-label="Main navigation">
+              <button
+                type="button"
+                data-mega-menu="about"
+                aria-expanded="false"
+                aria-controls="mega-menu-about"
+              >
+                About ULVAC
+                <span class="main-nav__icon">
+                  <img
+                    class="main-nav__icon-default"
+                    src="./img/site/4ae75.svg"
+                    alt=""
+                    aria-hidden="true"
+                  />
+                  <img
+                    class="main-nav__icon-active"
+                    src="./img/site/4aeca.svg"
+                    alt=""
+                    aria-hidden="true"
+                  />
+                </span>
+              </button>
+              <i aria-hidden="true"></i>
+              <a href="./index.html#business">Our Business</a>
+              <i aria-hidden="true"></i>
+              <button
+                type="button"
+                data-mega-menu="technology"
+                aria-expanded="false"
+                aria-controls="mega-menu-technology"
+              >
+                Technology
+                <span class="main-nav__icon">
+                  <img
+                    class="main-nav__icon-default"
+                    src="./img/site/4ae75.svg"
+                    alt=""
+                    aria-hidden="true"
+                  />
+                  <img
+                    class="main-nav__icon-active"
+                    src="./img/site/4aeca.svg"
+                    alt=""
+                    aria-hidden="true"
+                  />
+                </span>
+              </button>
+              <i aria-hidden="true"></i>
+              <a href="./index.html#products">Products</a>
+              <i aria-hidden="true"></i>
+              <a href="./news.html">News</a>
+            </nav>
+            <div class="header-actions">
+              <button
+                class="icon-button"
+                type="button"
+                aria-label="Open search"
+                aria-expanded="false"
+                aria-controls="search-panel"
+              >
+                <picture class="icon-button__open">
+                  <source media="(max-width: 940px)" srcset="./img/site/834f3.svg" />
+                  <img src="./img/site/header-search.svg" alt="" />
+                </picture>
+                <img
+                  class="icon-button__close"
+                  src="./img/site/2cd03.svg"
+                  alt=""
+                  aria-hidden="true"
+                />
+              </button>
+              <a class="contact-button" href="#contact">
+                <span>Contact</span>
+                <span class="contact-button__icon">
+                  <img src="./img/site/header-contact-chevron.svg" alt="" aria-hidden="true" />
+                </span>
+              </a>
+              <button
+                class="mobile-menu-button"
+                type="button"
+                aria-label="Open menu"
+                aria-expanded="false"
+                aria-controls="mobile-nav"
+              >
+                <img
+                  class="mobile-menu-button__open"
+                  src="./img/site/a087a.svg"
+                  alt=""
+                  aria-hidden="true"
+                />
+                <img
+                  class="mobile-menu-button__close"
+                  src="./img/site/2cd03.svg"
+                  alt=""
+                  aria-hidden="true"
+                />
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mega-menu mega-menu--about" id="mega-menu-about" hidden>
+        <p class="mega-menu__title">About ULVAC</p>
+        <div class="mega-menu__grid">
+          <a class="mega-menu__card" href="#overview"
+            ><strong>Overview</strong><span>Top Message, Who We Are and ULVAC at a glance.</span></a
+          >
+          <a class="mega-menu__card" href="./company-profile.html"
+            ><strong>Company Profile</strong
+            ><span>Corporate data, management, organization and locations.</span></a
+          >
+          <a class="mega-menu__card" href="#group-companies"
+            ><strong>Group Companies</strong
+            ><span>39 group companies worldwide, each with a profile page.</span></a
+          >
+          <a class="mega-menu__card" href="#history-of-ulvac"
+            ><strong>History of ULVAC</strong
+            ><span>The full chronology since our founding in 1952.</span></a
+          >
+        </div>
+      </div>
+
+      <div class="mega-menu mega-menu--technology" id="mega-menu-technology" hidden>
+        <p class="mega-menu__title">Technology</p>
+        <div class="mega-menu__grid">
+          <a class="mega-menu__card" href="./technology-overview.html"
+            ><strong>Technology Overview</strong
+            ><span>Our solutions and R&amp;D, with vacuum technology at our core.</span></a
+          >
+          <a class="mega-menu__card" href="./technology-solutions.html"
+            ><strong>Technology Solutions</strong
+            ><span
+              >Find ULVAC technology by application: 27 fields from semiconductors to
+              pharmaceuticals.</span
+            ></a
+          >
+          <a class="mega-menu__card" href="#research-development"
+            ><strong>Research &amp; Development</strong
+            ><span>Driving innovation and co-creation with vacuum technology at our core.</span></a
+          >
+        </div>
+      </div>
+
+      <div class="search-panel" id="search-panel" aria-hidden="true">
+        <form class="search-form" role="search">
+          <input
+            name="q"
+            type="search"
+            aria-label="Search"
+            placeholder="Search products, model numbers, articles..."
+            tabindex="-1"
+          />
+          <button type="submit" aria-label="Submit search" tabindex="-1">
+            <img src="./img/site/65e20.svg" alt="" aria-hidden="true" />
+          </button>
+        </form>
+        <div class="trending">
+          <h2>Trending Topics</h2>
+          <div class="trending__grid">
+            <a href="#sputtering-systems"
+              >Sputtering Systems <img src="./img/site/816e2.svg" alt="" aria-hidden="true"
+            /></a>
+            <a href="#vacuum-pumps"
+              >Vacuum Pumps <img src="./img/site/816e2.svg" alt="" aria-hidden="true"
+            /></a>
+            <a href="#cryopumps"
+              >Cryopumps <img src="./img/site/816e2.svg" alt="" aria-hidden="true"
+            /></a>
+            <a href="#vacuum-gauges"
+              >Vacuum Gauges <img src="./img/site/816e2.svg" alt="" aria-hidden="true"
+            /></a>
+            <a href="./index.html#products"
+              >All Products <img src="./img/site/816e2.svg" alt="" aria-hidden="true"
+            /></a>
+            <a href="#support"
+              >Support <img src="./img/site/816e2.svg" alt="" aria-hidden="true"
+            /></a>
+            <a href="./vacuum-magazine.html"
+              >Vacuum Magazine <img src="./img/site/816e2.svg" alt="" aria-hidden="true"
+            /></a>
+            <a href="#overview"
+              >Company Overview <img src="./img/site/816e2.svg" alt="" aria-hidden="true"
+            /></a>
+            <a href="#sales-service-network"
+              >Sales &amp; Service Network
+              <img src="./img/site/816e2.svg" alt="" aria-hidden="true"
+            /></a>
+          </div>
+        </div>
+      </div>
+
+      <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+        <div class="mobile-nav__primary">
+          <div class="mobile-nav__group">
+            <button
+              class="mobile-nav__trigger"
+              type="button"
+              aria-expanded="false"
+              aria-controls="mobile-about"
+            >
+              <span>About ULVAC</span>
+              <img class="mobile-nav__chevron-down" src="./img/site/a34da.svg" alt="" aria-hidden="true" />
+              <img class="mobile-nav__chevron-up" src="./img/site/2c902.svg" alt="" aria-hidden="true" />
+            </button>
+            <div class="mobile-nav__submenu" id="mobile-about">
+              <a href="#overview">
+                <span><strong>Overview</strong><small>Top Message, Who We Are and ULVAC at a glance.</small></span>
+                <img src="./img/site/85260.svg" alt="" aria-hidden="true" />
+              </a>
+              <a href="./company-profile.html">
+                <span><strong>Company Profile</strong><small>Corporate data, management, organization and locations.</small></span>
+                <img src="./img/site/85260.svg" alt="" aria-hidden="true" />
+              </a>
+              <a href="#group-companies">
+                <span><strong>Group Companies</strong><small>39 group companies worldwide, each with a profile page.</small></span>
+                <img src="./img/site/85260.svg" alt="" aria-hidden="true" />
+              </a>
+              <a href="#history-of-ulvac">
+                <span><strong>History of ULVAC</strong><small>The full chronology since our founding in 1952.</small></span>
+                <img src="./img/site/85260.svg" alt="" aria-hidden="true" />
+              </a>
+            </div>
+          </div>
+          <a class="mobile-nav__link" href="./index.html#business">Our Business</a>
+          <div class="mobile-nav__group">
+            <button
+              class="mobile-nav__trigger"
+              type="button"
+              aria-expanded="false"
+              aria-controls="mobile-technology"
+            >
+              <span>Technology</span>
+              <img class="mobile-nav__chevron-down" src="./img/site/a34da.svg" alt="" aria-hidden="true" />
+              <img class="mobile-nav__chevron-up" src="./img/site/2c902.svg" alt="" aria-hidden="true" />
+            </button>
+            <div class="mobile-nav__submenu" id="mobile-technology">
+              <a href="./technology-overview.html">
+                <span><strong>Technology Overview</strong><small>Our solutions and R&amp;D, with vacuum technology at our core.</small></span>
+                <img src="./img/site/85260.svg" alt="" aria-hidden="true" />
+              </a>
+              <a href="./technology-solutions.html">
+                <span><strong>Technology Solutions</strong><small>Find ULVAC technology by application: 27 fields from semiconductors to pharmaceuticals.</small></span>
+                <img src="./img/site/85260.svg" alt="" aria-hidden="true" />
+              </a>
+              <a href="#research-development">
+                <span><strong>Research &amp; Development</strong><small>Driving innovation and co-creation with vacuum technology at our core.</small></span>
+                <img src="./img/site/85260.svg" alt="" aria-hidden="true" />
+              </a>
+            </div>
+          </div>
+          <a class="mobile-nav__link" href="./index.html#products">Products</a>
+          <a class="mobile-nav__link" href="./news.html">News</a>
+        </div>
+
+        <div class="mobile-nav__utility">
+          <a href="#sustainability">Sustainability</a>
+          <a href="./vacuum-magazine.html">Vacuum Magazine</a>
+          <a href="#investor-relations">Investor Relations</a>
+          <a href="#support">Support</a>
+          <div class="mobile-language">
+            <button
+              class="mobile-language__trigger"
+              type="button"
+              aria-expanded="false"
+              aria-controls="mobile-language-menu"
+            >
+              <span>
+                <img src="./img/site/fb492.svg" alt="" aria-hidden="true" />
+                English
+              </span>
+              <img class="mobile-language__chevron" src="./img/site/47013.svg" alt="" aria-hidden="true" />
+            </button>
+            <div class="mobile-language__menu" id="mobile-language-menu">
+              <p>Language</p>
+              <a class="is-selected" href="#english">English <img src="./img/site/cfca9.svg" alt="" aria-hidden="true" /></a>
+              <a href="#japanese">Japanese</a>
+              <hr />
+              <p>Regional Sites</p>
+              <a href="#china">China</a>
+              <a href="#korea">Korea</a>
+              <a href="#taiwan">Taiwan</a>
+              <a href="#usa">USA</a>
+              <a href="#europe">Europe</a>
+              <a href="#southeast-asia">Southeast Asia</a>
+              <hr />
+              <a class="mobile-language__all" href="#group-companies">
+                All group companies
+                <img src="./img/site/816e2.svg" alt="" aria-hidden="true" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="magazine-page" id="magazine-top">
+      <nav class="about-breadcrumb content-shell" aria-label="Breadcrumb">
+        <a href="./index.html">Home</a><img src="./img/about/breadcrumb-right.svg" alt="" width="16" height="16"><strong aria-current="page">Vacuum Magazine</strong>
+      </nav>
+      <header class="magazine-masthead">
+        <div class="content-shell" data-magazine-reveal>
+          <h1>Vacuum Magazine</h1>
+          <p lang="ja">技術の背景や社会とのつながりを、ストーリーとして伝えるULVACのオウンドメディア。</p>
+          <small>produced by ULVAC</small>
+        </div>
+      </header>
+      <nav class="magazine-sections" aria-label="Magazine categories" data-magazine-reveal>
+        <div class="content-shell" lang="ja">
+          <a href="#magazine-top" aria-current="page" lang="en">Top</a>
+          <a href="#technology">テクノロジーを知る</a><a href="#society">社会とのつながり</a><a href="#future">未来を探る</a><a href="#people">人とものづくり</a><a href="#basics">基礎から学ぶ</a>
+        </div>
+      </nav>
+      <section class="magazine-intro content-shell" aria-labelledby="magazine-about" data-magazine-reveal>
+        <h2 id="magazine-about">About Vacuum Magazine</h2>
+        <div lang="ja">
+          <p>「真空」って、どんな世界だと思いますか？</p>
+          <p>見えないけれど、あらゆる最先端の現場で欠かせない技術。それが"真空"です。</p>
+          <a href="https://www.ulvac.co.jp/wiki/" lang="en">Read More<img src="./img/magazine-read-more.svg" alt="" width="16" height="16"></a>
+        </div>
+      </section>
+      <section class="magazine-feature content-shell" aria-label="Featured articles" aria-roledescription="carousel" data-magazine-reveal>
+        <div class="magazine-slides" aria-live="polite" lang="ja">
+          <article class="magazine-slide" id="magazine-feature-one">
+            <img src="./img/magazine-metal-hard-mask.png" alt="" width="802" height="451">
+            <div><span>テクノロジーを知る</span><h2><a href="https://www.ulvac.co.jp/wiki/en/metal-hard-mask-20260410/">半導体の微細化を支える「メタルハードマスク」成膜技術とは</a></h2><time datetime="2026-04-03">2026.04.03</time></div>
+          </article>
+          <article class="magazine-slide" id="magazine-feature-two" hidden>
+            <img src="./img/magazine-lithium-anode.png" alt="" width="802" height="451">
+            <div><span>未来を探る</span><h2>真空蒸着プロセスを用いたLi 金属負極の開発</h2><time datetime="2020-01-23">2020.01.23</time></div>
+          </article>
+          <article class="magazine-slide" id="magazine-feature-three" hidden>
+            <img src="./img/magazine/electrodes.png" alt="" width="802" height="451">
+            <div><span>未来を探る</span><h2>垂直配向カーボンナノチューブ電極の キャパシタへの応用</h2><time datetime="2019-12-23">2019.12.23</time></div>
+          </article>
+        </div>
+        <div class="magazine-pagination" aria-label="Choose featured article" role="group" hidden>
+          <button type="button" aria-label="Featured article 1 of 3" aria-controls="magazine-feature-one" aria-current="true"></button>
+          <button type="button" aria-label="Featured article 2 of 3" aria-controls="magazine-feature-two"></button>
+          <button type="button" aria-label="Featured article 3 of 3" aria-controls="magazine-feature-three"></button>
+        </div>
+      </section>
+      <div class="magazine-articles" lang="ja">
+        <section id="latest" class="article-section content-shell" aria-labelledby="latest-title">
+          <header class="article-heading" data-magazine-reveal><h2 id="latest-title" lang="en">Latest Articles</h2><a class="archive-link" href="https://www.ulvac.co.jp/wiki/" aria-label="最新記事一覧">See All</a></header>
+          <div class="article-grid">
+            <article data-magazine-reveal><a class="article-card" href="https://www.ulvac.co.jp/wiki/tech/20260216-vacuum-surface-science/"><span class="article-photo crop-award"><img src="img/magazine/award-ceremony.png" alt="" loading="lazy"></span><span class="article-badge">テクノロジーを知る</span><h3>学会誌「表面と真空」に論文が掲載されました</h3><time datetime="2026-02-16">2026.02.16</time></a></article>
+            <article data-magazine-reveal><a class="article-card" href="https://www.ulvac.co.jp/wiki/2020251219/"><span class="article-photo crop-discloser"><img src="img/magazine/cdp-discloser.png" alt="" loading="lazy"></span><span class="article-badge">人とものづくり</span><h3>笑顔と希望に包まれたアルバックタイランド20周年式典</h3><time datetime="2026-01-14">2026.01.14</time></a></article>
+            <article data-magazine-reveal><a class="article-card" href="https://www.ulvac.co.jp/wiki/ulfes2025/"><span class="article-photo crop-certificate"><img src="img/magazine/partner-certificate.png" alt="" loading="lazy"></span><span class="article-badge">人とものづくり</span><h3>ULFes2025 開催レポート</h3><time datetime="2026-01-08">2026.01.08</time></a></article>
+          </div>
+        </section>
+        <section id="popular" class="article-section article-section--popular content-shell" aria-labelledby="popular-title">
+          <header class="article-heading" data-magazine-reveal><h2 id="popular-title" lang="en">Popular Articles</h2></header>
+          <div class="popular-layout">
+            <ol class="ranked-list" role="list">
+              <li data-magazine-reveal><a class="article-card ranked-card" href="https://www.ulvac.co.jp/wiki/-5/"><img class="article-photo" src="img/magazine/rank-semiconductor.png" alt="" loading="lazy"><div><span class="article-badge">基礎から学ぶ</span><h3>「低真空」から 「極高真空」まで　真空の5つの分類<br>Vol. 4</h3><time datetime="2017-07-11">2017.07.11</time></div></a></li>
+              <li data-magazine-reveal><a class="article-card ranked-card" href="https://www.ulvac.co.jp/wiki/post-5/"><img class="article-photo" src="img/magazine/rank-display.png" alt="" loading="lazy"><div><span class="article-badge">基礎から学ぶ</span><h3>「平均自由行程」って何だろう?　Vol.6</h3><time datetime="2017-07-24">2017.07.24</time></div></a></li>
+              <li data-magazine-reveal><a class="article-card ranked-card" href="https://www.ulvac.co.jp/wiki/post-4/"><img class="article-photo" src="img/magazine/rank-energy.png" alt="" loading="lazy"><div><span class="article-badge">基礎から学ぶ</span><h3>圧力の差は、空間に存在する気体分子の数「分子密度」でわかる　Vol. 5</h3><time datetime="2017-07-14">2017.07.14</time></div></a></li>
+              <li data-magazine-reveal><a class="article-card ranked-card" href="https://www.ulvac.co.jp/wiki/vol-11/"><img class="article-photo" src="img/magazine/rank-production.png" alt="" loading="lazy"><div><span class="article-badge">基礎から学ぶ</span><h3>真空中での温度は放射と伝導で伝わっていく!?　Vol. 11</h3><time datetime="2017-09-20">2017.09.20</time></div></a></li>
+            </ol>
+            <aside class="popular-tags" aria-labelledby="popular-tags-title" data-magazine-reveal><h3 id="popular-tags-title" lang="en">Popular Tags</h3>
+              <div class="tag-list"><a href="https://www.ulvac.co.jp/wiki/tag/半導体/">#半導体</a><a href="https://www.ulvac.co.jp/wiki/tag/スパッタリング/">#スパッタリング</a><a href="https://www.ulvac.co.jp/wiki/tag/MEMS/">#MEMS</a><a href="https://www.ulvac.co.jp/wiki/tag/プラズマ/">#プラズマ</a><a href="https://www.ulvac.co.jp/wiki/tag/エッチング/">#エッチング</a><a href="https://www.ulvac.co.jp/wiki/tag/Power%20Device/">#Power Device</a><a href="https://www.ulvac.co.jp/wiki/tag/真空教室/">#真空教室</a><a href="https://www.ulvac.co.jp/wiki/tag/Technical%20Journal/">#Technical Journal</a><a href="https://www.ulvac.co.jp/wiki/tag/Lab-in-Fab/">#Lab-in-Fab</a><a href="https://www.ulvac.co.jp/wiki/tag/真空展/">#真空展</a></div>
+            </aside>
+          </div>
+        </section>
+        <section id="technology" class="article-section content-shell" aria-labelledby="technology-title">
+          <header class="article-heading" data-magazine-reveal><h2 id="technology-title">テクノロジーを知る</h2><a class="archive-link" href="https://www.ulvac.co.jp/wiki/category/technologies-solutions/" aria-label="テクノロジーの記事一覧">See All</a></header>
+          <div class="article-grid">
+            <article data-magazine-reveal><a class="article-card" href="https://www.ulvac.co.jp/wiki/post-13/"><img class="article-photo" src="img/magazine/semiconductor.png" alt="" loading="lazy"><span class="article-badge">テクノロジーを知る</span><h3>ドライエッチングとは</h3><time datetime="2022-04-21">2022.04.21</time></a></article>
+            <article data-magazine-reveal><a class="article-card" href="https://www.ulvac.co.jp/wiki/post-11/"><img class="article-photo" src="img/magazine/display.png" alt="" loading="lazy"><span class="article-badge">人とものづくり</span><h3>光学薄膜とは</h3><time datetime="2022-02-15">2022.02.15</time></a></article>
+            <article data-magazine-reveal><a class="article-card" href="https://www.ulvac.co.jp/wiki/gan/"><img class="article-photo" src="img/magazine/energy.png" alt="" loading="lazy"><span class="article-badge">人とものづくり</span><h3>GaNパワーデバイス</h3><time datetime="2022-02-01">2022.02.01</time></a></article>
+          </div>
+        </section>
+        <section id="society" class="article-section content-shell" aria-labelledby="society-title">
+          <header class="article-heading" data-magazine-reveal><h2 id="society-title">社会とのつながり</h2><a class="archive-link" href="https://www.ulvac.co.jp/wiki/category/vacuum-and-society/" aria-label="社会とのつながりの記事一覧">See All</a></header>
+          <div class="article-grid">
+            <article data-magazine-reveal><a class="article-card" href="https://www.ulvac.co.jp/wiki/post-17/"><span class="article-photo crop-award"><img src="img/magazine/award-ceremony.png" alt="" loading="lazy"></span><span class="article-badge">社会とのつながり</span><h3>真空実験でワクワク体験！茅ヶ崎「子どもふれあいまつり」参加</h3><time datetime="2025-11-10">2025.11.10</time></a></article>
+            <article data-magazine-reveal><a class="article-card" href="https://www.ulvac.co.jp/wiki/100/"><span class="article-photo crop-discloser"><img src="img/magazine/cdp-discloser.png" alt="" loading="lazy"></span><span class="article-badge">社会とのつながり</span><h3>富士裾野工場の電力、実質100％再生可能エネルギーに切り替えました！</h3><time datetime="2025-08-11">2025.08.11</time></a></article>
+            <article data-magazine-reveal><a class="article-card" href="https://www.ulvac.co.jp/wiki/100-1/"><span class="article-photo crop-certificate"><img src="img/magazine/partner-certificate.png" alt="" loading="lazy"></span><span class="article-badge">社会とのつながり</span><h3>森林の力を未来へつなぐ----やどりき水源林での森林再生プロジェクト</h3><time datetime="2025-08-01">2025.08.01</time></a></article>
+          </div>
+        </section>
+        <section id="future" class="article-section content-shell" aria-labelledby="future-title">
+          <header class="article-heading" data-magazine-reveal><h2 id="future-title">未来を探る</h2><a class="archive-link" href="https://www.ulvac.co.jp/wiki/category/our-initiatives/" aria-label="未来を探る記事一覧">See All</a></header>
+          <div class="article-grid">
+            <article data-magazine-reveal><a class="article-card" href="https://www.ulvac.co.jp/wiki/post-18/"><img class="article-photo" src="img/magazine/production.png" alt="" loading="lazy"><span class="article-badge">未来を探る</span><h3>産学連携で未来を創る！アルバック×大阪大学の博士育成プロジェクト</h3><time datetime="2026-01-08">2026.01.08</time></a></article>
+            <article data-magazine-reveal><a class="article-card" href="https://www.ulvac.co.jp/wiki/li/"><img class="article-photo" src="img/magazine/research.png" alt="" loading="lazy"><span class="article-badge">未来を探る</span><h3>真空蒸着プロセスを用いたLi 金属負極の開発</h3><time datetime="2020-01-23">2020.01.23</time></a></article>
+            <article data-magazine-reveal><a class="article-card" href="https://www.ulvac.co.jp/wiki/post-12/"><img class="article-photo" src="img/magazine/electrodes.png" alt="" loading="lazy"><span class="article-badge">未来を探る</span><h3>垂直配向カーボンナノチューブ電極の キャパシタへの応用</h3><time datetime="2019-12-23">2019.12.23</time></a></article>
+          </div>
+        </section>
+        <section id="people" class="article-section content-shell" aria-labelledby="people-title">
+          <header class="article-heading" data-magazine-reveal><h2 id="people-title">人とものづくり</h2><a class="archive-link" href="https://www.ulvac.co.jp/wiki/category/our-people%E2%80%8B/" aria-label="人とものづくりの記事一覧">See All</a></header>
+          <div class="article-grid">
+            <article data-magazine-reveal><a class="article-card" href="https://www.ulvac.co.jp/wiki/post-21/"><span class="article-photo crop-award"><img src="img/magazine/award-ceremony.png" alt="" loading="lazy"></span><span class="article-badge">人とものづくり</span><h3>子どもも大人もワクワク！九州工場の音楽フェス</h3><time datetime="2026-01-08">2026.01.08</time></a></article>
+            <article data-magazine-reveal><a class="article-card" href="https://www.ulvac.co.jp/wiki/post-19/"><span class="article-photo crop-discloser"><img src="img/magazine/cdp-discloser.png" alt="" loading="lazy"></span><span class="article-badge">人とものづくり</span><h3>仲間とともに勝ち取った栄誉！</h3><time datetime="2025-12-09">2025.12.09</time></a></article>
+            <article data-magazine-reveal><a class="article-card" href="https://www.ulvac.co.jp/wiki/post-20/"><span class="article-photo crop-certificate"><img src="img/magazine/partner-certificate.png" alt="" loading="lazy"></span><span class="article-badge">人とものづくり</span><h3>韓国政府からの栄誉、白忠烈氏が「産業褒章」を受章</h3><time datetime="2025-12-09">2025.12.09</time></a></article>
+          </div>
+        </section>
+        <section id="basics" class="article-section content-shell" aria-labelledby="basics-title">
+          <header class="article-heading" data-magazine-reveal><h2 id="basics-title">基礎から学ぶ</h2><a class="archive-link" href="https://www.ulvac.co.jp/wiki/category/vacuum-classroom/" aria-label="基礎から学ぶ記事一覧">See All</a></header>
+          <div class="article-grid">
+            <article data-magazine-reveal><a class="article-card" href="https://www.ulvac.co.jp/wiki/post-1/"><img class="article-photo" src="img/magazine/semiconductor.png" alt="" loading="lazy"><span class="article-badge">基礎から学ぶ</span><h3>空間に何もない状態が「真空」ではないって、知ってた?　Vol.1</h3><time datetime="2017-05-10">2017.05.10</time></a></article>
+            <article data-magazine-reveal><a class="article-card" href="https://www.ulvac.co.jp/wiki/1-more-than-moore/"><img class="article-photo" src="img/magazine/display.png" alt="" loading="lazy"><span class="article-badge">基礎から学ぶ</span><h3>1. More than Mooreとプラズマ技術</h3><time datetime="2021-10-27">2021.10.27</time></a></article>
+            <article data-magazine-reveal><a class="article-card" href="https://www.ulvac.co.jp/wiki/vol-12/"><img class="article-photo" src="img/magazine/energy.png" alt="" loading="lazy"><span class="article-badge">基礎から学ぶ</span><h3>凍結真空乾燥とは?　Vol. 12</h3><time datetime="2017-10-04">2017.10.04</time></a></article>
+          </div>
+        </section>
+        <section id="series" class="article-section article-section--series" aria-labelledby="series-title">
+          <div class="content-shell"><header class="article-heading" data-magazine-reveal><h2 id="series-title" lang="en">Series &amp; Features</h2><a class="archive-link" href="https://www.ulvac.co.jp/wiki/" aria-label="シリーズ・特集一覧">See All</a></header>
+            <div class="article-grid">
+              <article data-magazine-reveal><a class="article-card series-card" href="https://www.ulvac.co.jp/wiki/category/vacuum-classroom/hibari-classroom/"><span class="article-photo crop-classroom"><img src="img/magazine/classroom-thumbnail.png" alt="" loading="lazy"></span><div><span class="article-badge">Series</span><h3>真空ひばりの真空教室</h3></div></a></article>
+              <article data-magazine-reveal><a class="article-card series-card" href="https://www.ulvac.co.jp/research_development/technical_journal/index.html"><span class="article-photo crop-discloser"><img src="img/magazine/journal-thumbnail.png" alt="" loading="lazy"></span><div><span class="article-badge">Feature</span><h3>ULVAC Technical Journal</h3></div></a></article>
+              <article data-magazine-reveal><a class="article-card series-card" href="https://www.ulvac.co.jp/news/prm/index.html"><span class="article-photo crop-publication"><img src="img/magazine/publication-thumbnail.png" alt="" loading="lazy"></span><div><span class="article-badge">Feature</span><h3>広報誌</h3></div></a></article>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+
+    <footer class="footer">
+      <div class="footer__inner">
+        <img class="footer__logo" src="./img/94890.png" alt="ULVAC" />
+        <nav class="footer__nav" aria-label="Footer navigation">
+          <div>
+            <h2><a href="#">About ULVAC</a></h2>
+            <a href="./about.html">Overview</a><a href="./company-profile.html">Company Profile</a><a href="#">History of ULVAC</a
+            ><a href="#">Group Companies</a><a href="#">Sustainability</a>
+          </div>
+          <div>
+            <h2><a href="#">Business &amp; Products</a></h2>
+            <a href="#">Our Business</a><a href="./technology-overview.html">Technology</a><a href="#">Products</a>
+          </div>
+          <div>
+            <h2><a href="#">Media</a></h2>
+            <a href="./news.html">News</a><a href="./vacuum-magazine.html">Vacuum Magazine</a><a href="#">Investor Relations <img class="footer__external-icon" src="./img/footer-external-link.svg" width="16" height="16" alt="" /></a
+            ><a href="#">Download List</a>
+          </div>
+          <div>
+            <h2><a href="#">Reach Us</a></h2>
+            <a href="#">Contact</a><a href="#">Support</a>
+          </div>
+        </nav>
+        <div class="footer__legal">
+          <p>© 2026 ULVAC, Inc. All Rights Reserved.</p>
+          <nav aria-label="Legal">
+            <a href="#">Privacy Policy</a><a href="#">Terms of Use</a><a href="#">Sitemap</a>
+          </nav>
+        </div>
+      </div>
+    </footer>
+    <!-- 使用普通脚本，使页面通过 file:// 打开时也能加载交互。 -->
+    <script src="./script.js" defer></script>
+    <!-- figma:body-end -->
+  <script src=./vacuum-magazine.js defer></script>
+  </body>
+</html>

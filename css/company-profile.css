@@ -1,0 +1,185 @@
+.profile-page {
+  --profile-space: clamp(40px, 5.56vw, 80px);
+  --profile-gap: clamp(24px, 3.34vw, 48px);
+  --profile-card-padding: clamp(18px, 2.23vw, 32px);
+  --profile-surface: #f8f8f8;
+  padding-bottom: clamp(56px, 7vw, 100px);
+}
+.profile-page [id] { scroll-margin-top: 150px; }
+.profile-page h2, .profile-page h3, .profile-page h4 { color: #1a1a1a; line-height: 1.3; }
+.profile-page h2 { font-size: clamp(34px, 4.45vw, 64px); }
+.profile-page h3 { margin: var(--profile-gap) 0 24px; font-size: clamp(26px, 3.34vw, 48px); overflow-wrap: anywhere; }
+.profile-page h4 { margin: 0; font: 700 22px/1.3 "Roboto:Bold", Arial, sans-serif; }
+.profile-hero { padding-block: clamp(32px, 3.34vw, 48px); }
+.profile-hero::before, .profile-hero::after { content: none; }
+.profile-information { padding-block: clamp(40px, 4.45vw, 64px) var(--profile-space); }
+.profile-information table { border-collapse: separate; border-spacing: 0; width: 100%; margin-top: var(--profile-gap); font: inherit; line-height: 1.5; }
+.profile-information th, .profile-information td { border-bottom: 1px solid #ddd; padding: 11.5px 16px; text-align: left; }
+.profile-information tr:first-child > * { border-top: 1px solid #ddd; }
+.profile-information th { width: 24.1%; background: #e6e6e6; font-family: "Roboto:Bold", Arial, sans-serif; }
+.profile-panel { border-radius: 24px; padding: var(--profile-space) clamp(20px, 4.8vw, 69px); }
+.profile-policy { display: grid; grid-template-columns: minmax(0, 1fr) 56.4%; gap: var(--profile-gap); background: #eff8ff; }
+.profile-policy h2 { max-width: 8em; text-wrap: balance; }
+.profile-policy p, .profile-organization p { font-size: 18px; line-height: 1.5; }
+.profile-policy p { margin-top: 24px; }
+.profile-policy img, .profile-organization img { display: block; width: 100%; height: auto; border-radius: 24px; }
+.profile-management { margin-top: 24px; background: var(--profile-surface); border-radius: 30px; }
+.profile-grid, .profile-offices { display: grid; gap: 16px; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.profile-grid--officers { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.profile-grid article, .profile-offices article { border-radius: 24px; padding: var(--profile-card-padding); }
+.profile-information td:hover,
+.profile-company-name:focus-visible { color: #1c7dca; }
+.profile-grid article {
+  --card-delay: 0ms;
+  --card-duration: 180ms;
+  --card-easing: cubic-bezier(.22, 1, .36, 1);
+  --card-arrow-size: clamp(28px, 2.3vw, 34px);
+  --card-arrow-inset: 10px;
+  position: relative;
+  isolation: isolate;
+  min-width: 0;
+  padding-bottom: calc(var(--card-arrow-size) + var(--card-arrow-inset) + 6px);
+  background: var(--card-surface, #fff);
+  color: var(--card-text, #1a1a1a);
+  box-shadow: var(--card-shadow, 0 5px 12px rgb(4 28 47 / 0%), 0 12px 26px rgb(4 28 47 / 0%));
+  transition: background-color var(--card-duration) var(--card-easing) var(--card-delay),
+              color var(--card-duration) var(--card-easing) var(--card-delay),
+              box-shadow var(--card-duration) var(--card-easing) var(--card-delay);
+}
+.profile-grid article h4, .profile-grid article p { color: inherit; }
+.profile-grid article h4, .profile-grid article p, .profile-grid article > span {
+  transform: translateY(var(--card-content-offset, 0px));
+  transition: transform var(--card-duration) var(--card-easing) var(--card-delay);
+}
+.profile-grid article:focus-visible, .profile-company-name:focus-visible { outline: 2px solid #041c2f; outline-offset: 2px; }
+.profile-grid article::before, .profile-grid article::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+.profile-grid article::before, .profile-grid article::after {
+  z-index: 1;
+  visibility: var(--card-indicator, hidden);
+  transition: visibility 0s var(--card-delay), transform var(--card-duration) var(--card-easing) var(--card-delay);
+}
+.profile-grid article::before {
+  right: var(--card-arrow-inset);
+  bottom: var(--card-arrow-inset);
+  width: var(--card-arrow-size);
+  height: var(--card-arrow-size);
+  border-radius: 50%;
+  background: #fff;
+  transform: translateX(var(--card-arrow-offset, -3px));
+}
+.profile-grid article::after {
+  box-sizing: border-box;
+  right: calc(var(--card-arrow-inset) + var(--card-arrow-size) / 2);
+  bottom: calc(var(--card-arrow-inset) + var(--card-arrow-size) / 2);
+  width: 8px;
+  height: 8px;
+  border: solid #1875bc;
+  border-width: 2px 2px 0 0;
+  transform: translate(calc(34% + var(--card-arrow-offset, -3px)), 50%) rotate(45deg);
+}
+/* 叠加悬停标签，保留原职务与徽章尺寸。 */
+.profile-grid article > span:first-of-type { position: relative; }
+.profile-grid article > span:first-of-type::after {
+  content: "Tag" / "";
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  border-radius: inherit;
+  background: #041c2f;
+  visibility: var(--card-indicator, hidden);
+  transition: visibility 0s var(--card-delay);
+}
+.profile-portrait-frame {
+  width: 100%;
+  aspect-ratio: 226 / 225;
+  margin-bottom: 24px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.profile-portrait-frame > :is(img, .profile-portrait) {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background-repeat: no-repeat;
+  transform: scale(var(--card-portrait-scale, 1));
+  transition: transform var(--card-duration) var(--card-easing) var(--card-delay);
+}
+@media (hover: hover) and (pointer: fine) {
+  .profile-grid article:hover {
+    --card-delay: 35ms;
+    --card-surface: #1875bc;
+    --card-text: #fff;
+    --card-shadow: 0 5px 12px rgb(4 28 47 / 12%), 0 12px 26px rgb(4 28 47 / 9%);
+    --card-indicator: visible;
+    --card-arrow-offset: 0px;
+    --card-content-offset: -2px;
+    --card-portrait-scale: 1.06;
+  }
+}
+.profile-grid article:focus-visible {
+  --card-delay: 0ms;
+  --card-surface: #1875bc;
+  --card-text: #fff;
+  --card-shadow: 0 5px 12px rgb(4 28 47 / 12%), 0 12px 26px rgb(4 28 47 / 9%);
+  --card-indicator: visible;
+  --card-arrow-offset: 0px;
+  --card-content-offset: -2px;
+  --card-portrait-scale: 1.06;
+}
+@media (prefers-reduced-motion: reduce) {
+  .profile-grid article:is(:hover, :focus-visible), .profile-grid article {
+    --card-duration: 0ms;
+    --card-arrow-offset: 0px;
+    --card-content-offset: 0px;
+    --card-portrait-scale: 1;
+  }
+}
+.profile-portrait--kiyota { background-image: url('../img/profile/junya-kiyota.png'); background-size: 123.26% 183.73%; background-position: 50% 9%; }
+.profile-portrait--shimada { background-image: url('../img/profile/tetsuya-shimada.png'); background-size: 100% 149.06%; background-position: center 16.3%; }
+.profile-portrait--ishida { background-image: url('../img/profile/kozo-ishida.png'); background-size: 100% 149.06%; background-position: center 9%; }
+.profile-portrait--morijiri { background-image: url('../img/profile/yuji-morijiri.png'); background-size: 117.61% 175.3%; background-position: center 40.7%; }
+.profile-grid span { display: inline-block; padding: 4px 16px; margin-bottom: 12px; border-radius: 6px; background: #041e32; color: #fff; font: 700 16px/24px "Roboto:Bold", Arial, sans-serif; }
+.profile-grid article p, .profile-offices p, .profile-download p { margin-top: 8px; font-size: 15px; line-height: 24px; }
+.profile-organization { padding-block: var(--profile-space); }
+.profile-organization > div, .profile-download { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.profile-organization a { display: block; margin-top: var(--profile-gap); }
+.profile-offices { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.profile-offices article { display: flex; align-items: flex-start; flex-direction: column; background: var(--profile-surface); }
+.profile-offices aside, .profile-offices small, .profile-phone { font-size: 13px; line-height: 18px; }
+.profile-offices aside { margin-top: 8px; }
+.profile-offices p { margin-top: 16px; }
+.profile-phone, .profile-offices small { padding-left: 22px; margin-top: 4px; background: url('../img/profile/phone.svg') left center/16px no-repeat; }
+.profile-offices small { background-image: url('../img/profile/fax.svg'); }
+.profile-map { margin-top: 16px; color: #1c7dcd; text-decoration: underline; padding-right: 21px; background: url('../img/profile/map-external.svg') right center/18px no-repeat; }
+.profile-download { margin-top: var(--profile-space); border-radius: 24px; padding: var(--profile-card-padding); background: #cce6fb; }
+.profile-download h2 { font-size: clamp(22px, 2vw, 28px); }
+.profile-download a { display: inline-flex; align-items: center; gap: 16px; border: 1px solid currentColor; border-radius: 100px; padding: 3px 3px 3px 15px; background: #fff; color: #1c7dcd; font: 700 18px/1.5 "Roboto:Bold", Arial, sans-serif; }
+.profile-download img { width: 32px; height: 32px; padding: 4px; border-radius: 50%; background: #1c7dcd; }
+.profile-download a:is(:hover, :focus-visible) { background-color: var(--color-line); color: var(--color-button-hover); }
+.profile-download a:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+@media (prefers-reduced-motion: no-preference) {
+  .profile-download a { transition: background-color var(--duration-normal) var(--ease-out), color var(--duration-normal) var(--ease-out); }
+}
+.profile-map:hover, .profile-phone:hover { color: #064171; }
+@media (max-width: 1199px) {
+  .profile-grid, .profile-grid--officers { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 940px) {
+  .profile-page [id] { scroll-margin-top: 84px; }
+  .profile-policy { grid-template-columns: 1fr; }
+  .profile-policy h2 { max-width: none; }
+  .profile-grid, .profile-grid--officers, .profile-offices { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 600px) {
+  .profile-panel { padding-inline: 16px; }
+  .profile-grid, .profile-offices { grid-template-columns: 1fr; }
+  .profile-information th, .profile-information td { padding: 10px 8px; overflow-wrap: anywhere; }
+  .profile-information th { width: 35%; }
+  .profile-organization > div, .profile-download { flex-direction: column; align-items: flex-start; }
+}

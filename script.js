@@ -206,18 +206,34 @@ const locations = [
 ];
 
 let activeLocation = 0;
-const countryCard = document.querySelector(".country-card");
+let requestedLocation = 0;
+let requestedDirection = 1;
+const countrySlide = document.querySelector(".country-carousel__slide");
+const countryCard = countrySlide?.querySelector(".country-card");
 const mapPins = [...document.querySelectorAll(".world-map__pin")];
-let activePin = mapPins.find((pin) => pin.classList.contains("is-active")) ?? mapPins[0];
+let requestedPin = mapPins.find((pin) => pin.classList.contains("is-active"));
+const countryMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+let slideAnimations = [];
 
-// 同步地点卡片和地图上的选中标记。
-function renderLocation(index, selectedPin) {
+function syncLocationPins() {
+  mapPins.forEach((pin) => {
+    const selected = pin === requestedPin;
+    pin.classList.toggle("is-active", selected);
+    pin.setAttribute("aria-pressed", String(selected));
+  });
+}
+
+function renderLocation() {
   if (!countryCard) return;
-  activeLocation = (index + locations.length) % locations.length;
-  activePin =
-    selectedPin ??
-    mapPins.find((pin) => Number(pin.dataset.location) === activeLocation) ??
-    mapPins[0];
+  if (requestedLocation === activeLocation) {
+    syncLocationPins();
+    return;
+  }
+  if (slideAnimations.length) return;
+  const viewport = countrySlide.parentElement;
+  const outgoing = !countryMotion.matches && countrySlide.animate ? countrySlide.cloneNode(true) : null;
+  activeLocation = requestedLocation;
+  syncLocationPins();
   const location = locations[activeLocation];
   const image = countryCard.querySelector("img");
   const title = countryCard.querySelector("h3");
@@ -228,22 +244,52 @@ function renderLocation(index, selectedPin) {
   title.textContent = location.name;
   details.forEach((detail, detailIndex) => {
     detail.querySelector("dt").textContent = location.details[detailIndex][0];
-    detail.querySelector("dd").textContent = location.details[detailIndex][1];
+    const value = detail.querySelector("dd");
+    value.textContent = location.details[detailIndex][1];
+    observeCounter?.(value);
   });
-  mapPins.forEach((pin) => {
-    const active = pin === activePin;
-    pin.classList.toggle("is-active", active);
+  if (!outgoing) return;
+  outgoing.setAttribute("aria-hidden", "true");
+  viewport.append(outgoing);
+  viewport.classList.add("is-sliding");
+  const timing = { duration: 580, easing: "cubic-bezier(0.22, 0.61, 0.36, 1)", fill: "both" };
+  const slideGap = matchMedia("(max-width: 768px)").matches ? 16 : 24;
+  const frames = (from, to) => [from, to].map(direction => ({
+    transform: `translateX(calc(${direction * 100}% + ${direction * slideGap}px))`,
+  }));
+  slideAnimations = [
+    countrySlide.animate(frames(requestedDirection, 0), timing),
+    outgoing.animate(frames(0, -requestedDirection), timing),
+  ];
+  Promise.all(slideAnimations.map(animation => animation.finished)).then(() => {
+    outgoing.remove();
+    slideAnimations.forEach(animation => animation.cancel());
+    slideAnimations = [];
+    viewport.classList.remove("is-sliding");
+    renderLocation(); // 连点只追到最新请求，不排队播放过期的卡片。
   });
 }
 
+syncLocationPins();
+countryMotion.addEventListener("change", () => {
+  if (countryMotion.matches) slideAnimations.forEach(animation => animation.finish());
+});
 document.querySelectorAll(".country-carousel__controls button").forEach((button) => {
-  button.addEventListener("click", () =>
-    renderLocation(activeLocation + Number(button.dataset.direction)),
-  );
+  button.addEventListener("click", () => {
+    requestedDirection = Number(button.dataset.direction);
+    requestedLocation = (requestedLocation + requestedDirection + locations.length) % locations.length;
+    requestedPin = mapPins.find(pin => Number(pin.dataset.location) === requestedLocation);
+    renderLocation();
+  });
 });
 
 mapPins.forEach((pin) => {
-  pin.addEventListener("click", () => renderLocation(Number(pin.dataset.location), pin));
+  pin.addEventListener("click", () => {
+    requestedLocation = Number(pin.dataset.location);
+    requestedDirection = requestedLocation < activeLocation ? -1 : 1;
+    requestedPin = pin;
+    renderLocation();
+  });
 });
 
 // 移动端业务区域使用原生横向滚动，保留触摸惯性并将最靠近中心的卡片设为激活态。
@@ -305,23 +351,65 @@ function initializeBusinessCarousel() {
 
 initializeBusinessCarousel();
 
+function initializeTechnologyCounters() {
+  const counters = document.querySelectorAll("[data-technology-counter], .country-card__body dd");
+  const pendingFrames = new WeakMap();
+  if (!counters.length || !window.IntersectionObserver || !window.requestAnimationFrame || !window.matchMedia) return;
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  if (reducedMotion.matches) return;
+
+  const defaultDuration = 1500;
+  const observer = new IntersectionObserver((entries) => {
+    for (const { target, isIntersecting } of entries) {
+      if (!isIntersecting) continue;
+      observer.unobserve(target);
+      if (reducedMotion.matches) continue;
+
+      const finalText = target.textContent;
+      const match = finalText.match(/^(\D*)([\d,]+)(\.\d+)?$/);
+      if (!match) continue;
+      const [, prefix, integer, fraction = ""] = match;
+      const finalValue = Number(integer.replace(/,/g, "") + fraction);
+      const duration = target.matches(".country-card__body dd")
+        ? Math.min(defaultDuration, Math.max(80, finalValue * 80))
+        : defaultDuration;
+      const startTime = performance.now();
+      function updateValue(now) {
+        const progress = Math.max(0, (now - startTime) / duration);
+        if (progress >= 1 || reducedMotion.matches) {
+          target.textContent = finalText;
+          return;
+        }
+        const value = finalValue * progress;
+        target.textContent = prefix + (fraction ? value.toFixed(fraction.length - 1) : Math.round(value).toLocaleString("en-US", { useGrouping: integer.includes(",") }));
+        pendingFrames.set(target, requestAnimationFrame(updateValue));
+      }
+      updateValue(startTime);
+    }
+  }, { threshold: 0.3, rootMargin: "0px 0px -50px 0px" });
+  counters.forEach((counter) => observer.observe(counter));
+  return (counter) => {
+    if (pendingFrames.has(counter)) cancelAnimationFrame(pendingFrames.get(counter));
+    observer.unobserve(counter);
+    observer.observe(counter);
+  };
+}
+
+const observeCounter = initializeTechnologyCounters();
+
 // 按参考页的顺序注册入场；未启用脚本或不支持观察器时，内容保持可见。
 function initializePageReveals() {
   const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
   if (reducedMotion.matches || !("IntersectionObserver" in window)) return;
 
   const mobile = matchMedia("(max-width: 768px)");
-  const splitGrid = matchMedia("(max-width: 1280px)");
   const pending = new Set();
-  const businessCards = [...document.querySelectorAll(".business__grid > .business-card")];
-  const observedGroups = new Map();
   let observer;
 
-  // 延迟按各组的 DOM 顺序分配；窄屏由 CSS 统一缩短延迟与播放时间。
-  function register(selector, delay = 0, step = 0) {
-    for (const [index, element] of document.querySelectorAll(selector).entries()) {
+  function register(selector, delay = 0, step = 0, scope = document, itemsPerRow = Infinity) {
+    for (const [index, element] of scope.querySelectorAll(selector).entries()) {
       element.dataset.revealState = "pending";
-      element.style.setProperty("--entry-delay", String(delay + step * index));
+      element.style.setProperty("--entry-delay", `${delay + step * (index % itemsPerRow)}ms`);
       pending.add(element);
     }
   }
@@ -330,6 +418,7 @@ function initializePageReveals() {
   function reveal(element, immediate = false) {
     if (!element?.dataset.revealState) return;
     if (!pending.delete(element) && !immediate) return;
+    observer?.unobserve(element);
     if (immediate) {
       delete element.dataset.revealState;
     } else {
@@ -337,60 +426,45 @@ function initializePageReveals() {
     }
   }
 
-  // 每次断点变化仅重新观察待播元素。业务区按可见行触发，避免错高布局打乱次序。
   function observePending() {
     observer?.disconnect();
-    observedGroups.clear();
     if (mobile.matches) {
-      for (const element of document.querySelectorAll(".business [data-reveal-state]")) {
-        reveal(element, true);
-      }
+      for (const element of document.querySelectorAll(".business [data-reveal-state]:not(.business-card)")) reveal(element, true);
     }
     if (!pending.size) return;
-
-    observer = new IntersectionObserver(handleIntersections, {
-      rootMargin: mobile.matches ? "0px 0px -16px" : "0px 0px -48px",
+    observer = new IntersectionObserver((entries, source) => {
+      if (source !== observer) return;
+      let revealBusinessCards = false;
+      for (const entry of entries) {
+        if (!entry.isIntersecting) continue;
+        if (entry.target.parentElement === businessGrid) revealBusinessCards = true;
+        else reveal(entry.target);
+      }
+      if (revealBusinessCards) {
+        const bounds = businessGrid.getBoundingClientRect();
+        // Grid auto-placement follows DOM order; the carousel has its own visual order.
+        const cards = [...businessGrid.children].filter((card) => pending.has(card) && card.offsetWidth);
+        const visibleCards = mobile.matches ? cards.filter((card) => {
+          const rect = card.getBoundingClientRect();
+          return rect.right > bounds.left && rect.left < bounds.right;
+        }).sort((left, right) => left.offsetLeft - right.offsetLeft) : cards;
+        visibleCards.forEach((card, index) => {
+          card.style.setProperty("--entry-delay", `${140 + 100 * index}ms`);
+          reveal(card);
+        });
+      }
+    }, {
+      rootMargin: mobile.matches ? "0px 0px -5% 0px" : "0px 0px -10% 0px",
+      threshold: mobile.matches ? 0.1 : 0.16,
     });
-
-    for (const element of pending) {
-      if (!element.matches(".business-card")) {
-        observedGroups.set(element, [element]);
-      }
-    }
-
-    if (!mobile.matches) {
-      const columns = splitGrid.matches ? 3 : 6;
-      for (let start = 0; start < businessCards.length; start += columns) {
-        const row = businessCards.slice(start, start + columns).filter((card) => pending.has(card));
-        if (row.length) observedGroups.set(businessCards[start], row);
-      }
-    }
-
-    for (const target of observedGroups.keys()) observer.observe(target);
+    for (const element of pending) observer.observe(element);
     revealAtPageEnd();
   }
 
-  // 相交后立即解除观察；同一业务行共享起点，间距不会随滚动速度改变。
-  function handleIntersections(entries, sourceObserver) {
-    if (sourceObserver !== observer) return;
-    for (const entry of entries) {
-      if (!entry.isIntersecting) continue;
-      for (const element of observedGroups.get(entry.target) ?? []) reveal(element);
-      observedGroups.delete(entry.target);
-      sourceObserver.unobserve(entry.target);
-    }
-  }
-
-  // 页底空间不足以跨过观察边界时，也要显示已进入实际视口的页脚内容。
   function revealAtPageEnd(event) {
     if (!pending.size || window.scrollY + innerHeight < document.documentElement.scrollHeight - 4) return;
-    for (const [target, group] of observedGroups) {
-      const bounds = target.getBoundingClientRect();
-      if (bounds.bottom <= 0 || bounds.top >= innerHeight) continue;
-      for (const element of group) reveal(element, event?.type === "pageshow" && event.persisted);
-      observedGroups.delete(target);
-      observer.unobserve(target);
-    }
+    const restored = event?.type === "pageshow" && event.persisted;
+    for (const element of pending) reveal(element, restored || !element.getClientRects().length);
   }
 
   // 锚点直达与键盘聚焦不等待动画，避免链接可聚焦但仍不可见。
@@ -406,7 +480,8 @@ function initializePageReveals() {
     const target = document.getElementById(id);
     if (!target) return;
     reveal(target.closest("[data-reveal-state]"), true);
-    reveal(document.getElementById(target.getAttribute("aria-labelledby")), true);
+    const heading = document.getElementById(target.getAttribute("aria-labelledby")) ?? target.querySelector("h1, h2, h3");
+    reveal(heading?.closest("[data-reveal-state]"), true);
   }
 
   // 聚焦事件也覆盖轮播与图钉所在的入场容器。
@@ -424,9 +499,7 @@ function initializePageReveals() {
     if (!reducedMotion.matches) return;
     for (const element of document.querySelectorAll("[data-reveal-state]")) reveal(element, true);
     observer?.disconnect();
-    observedGroups.clear();
     mobile.removeEventListener("change", observePending);
-    splitGrid.removeEventListener("change", observePending);
     reducedMotion.removeEventListener("change", stopReveals);
     document.removeEventListener("focusin", revealFocused);
     document.removeEventListener("animationend", clearFinished);
@@ -437,24 +510,68 @@ function initializePageReveals() {
   }
 
   register(".section-intro h2, .section-heading h2");
-  register(".business__grid > .business-card");
-  register(".business__panel > .button, .operations .section-heading > .button", 105);
-  register(".content-section .section-heading > .button", 270);
-  register(".news-grid > .news-card", 85, 125);
-  register(".magazine__list > .magazine-item", 85, 125);
-  register(".operations__content", 105);
-  register(".about-hero h1, .about-hero p, .about-anchor-nav", 0, 90);
-  register(".about-page > .about-section");
+  register(".hero__content > .button", 240);
+  register(".section-intro p, .business__panel > .button, .operations .button, .operations__content", 140);
+  const businessGrid = document.querySelector(".business .business__grid");
+  if (businessGrid) register(":scope > .business-card", 0, 0, businessGrid);
+  register(".news-grid > .news-card", 140, 200);
+  register("#news .section-heading > .button", 440);
+  register(".magazine__list > .magazine-item", 140, 100);
+  register(".magazine__image", 140);
+  register("[data-magazine-reveal]");
+  register("#magazine .section-heading > .button", 540);
+
+  register(".about-hero h1, .technology-hero h1, .about-section h2, .strategy-section > h3");
+  register(".about-hero p, .technology-hero p, .profile-hero .about-anchor-nav", 140);
+  register(".about-hero:not(.profile-hero) .about-anchor-nav, .technology-hero .about-anchor-nav", 240);
+  register(".message-portrait, .who-card > div > p, .strategy-intro p, .portfolio-card > img", 140);
+  register(".message-copy > h3", 340);
+  register(".message-copy > strong", 440);
+  register(".message-copy > div", 540);
+  register(".who-card > aside, .strategy-intro figure", 240);
+  register(".portfolio-card p", 140, 100);
+  register(".growth-grid > article", 140, 100);
+  register(".strategy-images > img", 140, 100);
+  register(".strategy-section > .text-link", 340);
+  register(".glance-grid > *", 140, 100);
+  register(".glance-note", 540);
+  register(".learn-more a", 140, 100);
+
+  register("h2[data-profile-reveal], h2[data-technology-reveal], .profile-policy h2, .profile-organization h2, .profile-download h2");
+  register("tr[data-profile-reveal]", 140, 100);
+  register("h3[data-profile-reveal], .profile-policy p, .profile-organization p, .profile-download p, .profile-download > a", 140);
+  register(".profile-policy > img, .profile-organization > a", 240);
+  for (const group of document.querySelectorAll(".profile-grid, .profile-offices")) {
+    register(":scope > article", 140, 100, group);
+  }
+  register(".technology-intro");
+  register(".technology-focus-grid > article", 240, 100);
+  register(".technology-metric", 140, 100);
+  register(".technology-numbers__note", 540);
+  register(".technology-stories-grid > article", 140, 200);
+  register(".technology-magazine", 440);
+  register(".solutions-card", 140, 100, document, 4);
+  register(".solutions-directory__column", 140, 100, document, 4);
+
+  register(".power-hero h1, .power-challenge h2, .power-section__heading");
+  register(".power-hero p, .power-challenge p, .power-inquiry__content", 140);
+  register(".power-process-card", 140, 100);
+  register(".power-equipment-card", 140, 100);
+  register(".power-products-action", 240);
+
+  register(".news-page-hero h1, .news-featured__heading, .news-archive__heading");
+  register(".news-page-hero p, .news-archive__filters, .news-archive__row", 140);
+  register(".news-feature-card", 140, 200, document, 3);
+
   register(".footer__logo");
-  register(".footer__nav > div:nth-child(-n+2)", 90);
-  register(".footer__nav > div:nth-child(n+3)", 160);
-  register(".footer__legal", 230);
+  register(".footer__nav > div:nth-child(-n+2)", 140);
+  register(".footer__nav > div:nth-child(n+3)", 240);
+  register(".footer__legal", 340);
 
   revealHashTarget();
   reveal(document.activeElement?.closest("[data-reveal-state]"), true);
   observePending();
   mobile.addEventListener("change", observePending);
-  splitGrid.addEventListener("change", observePending);
   reducedMotion.addEventListener("change", stopReveals);
   document.addEventListener("focusin", revealFocused);
   document.addEventListener("animationend", clearFinished);

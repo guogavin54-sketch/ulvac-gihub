@@ -1,0 +1,479 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- figma:head-start -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="ULVAC corporate information, management policy and structure, organization, office locations and corporate brochure." />
+    <title>Company Profile | ULVAC</title>
+    <link rel="stylesheet" href="./css/pc.css" />
+    <link rel="stylesheet" href="./css/header.css" />
+    <link rel="stylesheet" href="./css/mobile.css" />
+    <link rel="stylesheet" href="./css/about.css" />
+    <link rel="stylesheet" href="./css/company-profile.css" />
+    <link rel="preload" href="./script.js" as="script" />
+    <!-- figma:head-end -->
+  </head>
+  <body>
+    <!-- figma:body-start -->
+    <header class="site-header" id="site-header">
+      <div class="site-header__glass">
+        <div class="site-header__inner">
+          <div class="utility-nav">
+            <a href="#sustainability">Sustainability</a>
+            <a href="./vacuum-magazine.html">Vacuum Magazine</a>
+            <a class="external-link" href="#investor-relations">
+              Investor Relations
+              <img src="./img/site/51fd2.svg" alt="" aria-hidden="true" />
+            </a>
+            <a href="#support">Support</a>
+            <div class="language">
+              <button
+                class="language__trigger"
+                type="button"
+                aria-expanded="false"
+                aria-controls="language-menu"
+              >
+                <img class="language__globe" src="./img/site/header-language.svg" alt="" aria-hidden="true" />
+                <span>English</span>
+                <img
+                  class="language__chevron"
+                  src="./img/site/header-language-chevron.svg"
+                  alt=""
+                  aria-hidden="true"
+                />
+              </button>
+              <div class="language__menu" id="language-menu">
+                <p class="language__label">Language</p>
+                <a class="language__item is-selected" href="#english">
+                  English
+                  <img src="./img/site/cfca9.svg" alt="" aria-hidden="true" />
+                </a>
+                <a class="language__item" href="#japanese">Japanese</a>
+                <div class="language__divider"></div>
+                <p class="language__label">Regional Sites</p>
+                <a class="language__item" href="#china">China</a>
+                <a class="language__item" href="#korea">Korea</a>
+                <a class="language__item" href="#taiwan">Taiwan</a>
+                <a class="language__item" href="#usa">USA</a>
+                <a class="language__item" href="#europe">Europe</a>
+                <a class="language__item" href="#southeast-asia">Southeast Asia</a>
+                <div class="language__divider"></div>
+                <a class="language__all" href="#group-companies">
+                  All group companies
+                  <img src="./img/site/816e2.svg" alt="" aria-hidden="true" />
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="header-main">
+            <a class="logo" href="./index.html" aria-label="ULVAC home">
+              <img src="./img/site/b45c0.png" alt="ULVAC" />
+            </a>
+            <nav class="main-nav" aria-label="Main navigation">
+              <button
+                type="button"
+                data-mega-menu="about"
+                aria-expanded="false"
+                aria-controls="mega-menu-about"
+              >
+                About ULVAC
+                <span class="main-nav__icon">
+                  <img
+                    class="main-nav__icon-default"
+                    src="./img/site/4ae75.svg"
+                    alt=""
+                    aria-hidden="true"
+                  />
+                  <img
+                    class="main-nav__icon-active"
+                    src="./img/site/4aeca.svg"
+                    alt=""
+                    aria-hidden="true"
+                  />
+                </span>
+              </button>
+              <i aria-hidden="true"></i>
+              <a href="#business">Our Business</a>
+              <i aria-hidden="true"></i>
+              <button
+                type="button"
+                data-mega-menu="technology"
+                aria-expanded="false"
+                aria-controls="mega-menu-technology"
+              >
+                Technology
+                <span class="main-nav__icon">
+                  <img
+                    class="main-nav__icon-default"
+                    src="./img/site/4ae75.svg"
+                    alt=""
+                    aria-hidden="true"
+                  />
+                  <img
+                    class="main-nav__icon-active"
+                    src="./img/site/4aeca.svg"
+                    alt=""
+                    aria-hidden="true"
+                  />
+                </span>
+              </button>
+              <i aria-hidden="true"></i>
+              <a href="#products">Products</a>
+              <i aria-hidden="true"></i>
+              <a href="./news.html">News</a>
+            </nav>
+            <div class="header-actions">
+              <button
+                class="icon-button"
+                type="button"
+                aria-label="Open search"
+                aria-expanded="false"
+                aria-controls="search-panel"
+              >
+                <picture class="icon-button__open">
+                  <source media="(max-width: 940px)" srcset="./img/site/834f3.svg" />
+                  <img src="./img/site/header-search.svg" alt="" />
+                </picture>
+                <img
+                  class="icon-button__close"
+                  src="./img/site/2cd03.svg"
+                  alt=""
+                  aria-hidden="true"
+                />
+              </button>
+              <a class="contact-button" href="#contact">
+                <span>Contact</span>
+                <span class="contact-button__icon">
+                  <img src="./img/site/header-contact-chevron.svg" alt="" aria-hidden="true" />
+                </span>
+              </a>
+              <button
+                class="mobile-menu-button"
+                type="button"
+                aria-label="Open menu"
+                aria-expanded="false"
+                aria-controls="mobile-nav"
+              >
+                <img
+                  class="mobile-menu-button__open"
+                  src="./img/site/a087a.svg"
+                  alt=""
+                  aria-hidden="true"
+                />
+                <img
+                  class="mobile-menu-button__close"
+                  src="./img/site/2cd03.svg"
+                  alt=""
+                  aria-hidden="true"
+                />
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mega-menu mega-menu--about" id="mega-menu-about" hidden>
+        <p class="mega-menu__title">About ULVAC</p>
+        <div class="mega-menu__grid">
+          <a class="mega-menu__card" href="./about.html"
+            ><strong>Overview</strong><span>Top Message, Who We Are and ULVAC at a glance.</span></a
+          >
+          <a class="mega-menu__card" href="./company-profile.html"
+            ><strong>Company Profile</strong
+            ><span>Corporate data, management, organization and locations.</span></a
+          >
+          <a class="mega-menu__card" href="#group-companies"
+            ><strong>Group Companies</strong
+            ><span>39 group companies worldwide, each with a profile page.</span></a
+          >
+          <a class="mega-menu__card" href="#history-of-ulvac"
+            ><strong>History of ULVAC</strong
+            ><span>The full chronology since our founding in 1952.</span></a
+          >
+        </div>
+      </div>
+
+      <div class="mega-menu mega-menu--technology" id="mega-menu-technology" hidden>
+        <p class="mega-menu__title">Technology</p>
+        <div class="mega-menu__grid">
+          <a class="mega-menu__card" href="./technology-overview.html"
+            ><strong>Technology Overview</strong
+            ><span>Our solutions and R&amp;D, with vacuum technology at our core.</span></a
+          >
+          <a class="mega-menu__card" href="./technology-solutions.html"
+            ><strong>Technology Solutions</strong
+            ><span
+              >Find ULVAC technology by application: 27 fields from semiconductors to
+              pharmaceuticals.</span
+            ></a
+          >
+          <a class="mega-menu__card" href="#research-development"
+            ><strong>Research &amp; Development</strong
+            ><span>Driving innovation and co-creation with vacuum technology at our core.</span></a
+          >
+        </div>
+      </div>
+
+      <div class="search-panel" id="search-panel" aria-hidden="true">
+        <form class="search-form" role="search">
+          <input
+            name="q"
+            type="search"
+            aria-label="Search"
+            placeholder="Search products, model numbers, articles..."
+            tabindex="-1"
+          />
+          <button type="submit" aria-label="Submit search" tabindex="-1">
+            <img src="./img/site/65e20.svg" alt="" aria-hidden="true" />
+          </button>
+        </form>
+        <div class="trending">
+          <h2>Trending Topics</h2>
+          <div class="trending__grid">
+            <a href="#sputtering-systems"
+              >Sputtering Systems <img src="./img/site/816e2.svg" alt="" aria-hidden="true"
+            /></a>
+            <a href="#vacuum-pumps"
+              >Vacuum Pumps <img src="./img/site/816e2.svg" alt="" aria-hidden="true"
+            /></a>
+            <a href="#cryopumps"
+              >Cryopumps <img src="./img/site/816e2.svg" alt="" aria-hidden="true"
+            /></a>
+            <a href="#vacuum-gauges"
+              >Vacuum Gauges <img src="./img/site/816e2.svg" alt="" aria-hidden="true"
+            /></a>
+            <a href="#products"
+              >All Products <img src="./img/site/816e2.svg" alt="" aria-hidden="true"
+            /></a>
+            <a href="#support"
+              >Support <img src="./img/site/816e2.svg" alt="" aria-hidden="true"
+            /></a>
+            <a href="./vacuum-magazine.html"
+              >Vacuum Magazine <img src="./img/site/816e2.svg" alt="" aria-hidden="true"
+            /></a>
+            <a href="./about.html"
+              >Company Overview <img src="./img/site/816e2.svg" alt="" aria-hidden="true"
+            /></a>
+            <a href="#sales-service-network"
+              >Sales &amp; Service Network
+              <img src="./img/site/816e2.svg" alt="" aria-hidden="true"
+            /></a>
+          </div>
+        </div>
+      </div>
+
+      <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+        <div class="mobile-nav__primary">
+          <div class="mobile-nav__group">
+            <button
+              class="mobile-nav__trigger"
+              type="button"
+              aria-expanded="false"
+              aria-controls="mobile-about"
+            >
+              <span>About ULVAC</span>
+              <img class="mobile-nav__chevron-down" src="./img/site/a34da.svg" alt="" aria-hidden="true" />
+              <img class="mobile-nav__chevron-up" src="./img/site/2c902.svg" alt="" aria-hidden="true" />
+            </button>
+            <div class="mobile-nav__submenu" id="mobile-about">
+              <a href="./about.html">
+                <span><strong>Overview</strong><small>Top Message, Who We Are and ULVAC at a glance.</small></span>
+                <img src="./img/site/85260.svg" alt="" aria-hidden="true" />
+              </a>
+              <a href="./company-profile.html">
+                <span><strong>Company Profile</strong><small>Corporate data, management, organization and locations.</small></span>
+                <img src="./img/site/85260.svg" alt="" aria-hidden="true" />
+              </a>
+              <a href="#group-companies">
+                <span><strong>Group Companies</strong><small>39 group companies worldwide, each with a profile page.</small></span>
+                <img src="./img/site/85260.svg" alt="" aria-hidden="true" />
+              </a>
+              <a href="#history-of-ulvac">
+                <span><strong>History of ULVAC</strong><small>The full chronology since our founding in 1952.</small></span>
+                <img src="./img/site/85260.svg" alt="" aria-hidden="true" />
+              </a>
+            </div>
+          </div>
+          <a class="mobile-nav__link" href="#business">Our Business</a>
+          <div class="mobile-nav__group">
+            <button
+              class="mobile-nav__trigger"
+              type="button"
+              aria-expanded="false"
+              aria-controls="mobile-technology"
+            >
+              <span>Technology</span>
+              <img class="mobile-nav__chevron-down" src="./img/site/a34da.svg" alt="" aria-hidden="true" />
+              <img class="mobile-nav__chevron-up" src="./img/site/2c902.svg" alt="" aria-hidden="true" />
+            </button>
+            <div class="mobile-nav__submenu" id="mobile-technology">
+              <a href="./technology-overview.html">
+                <span><strong>Technology Overview</strong><small>Our solutions and R&amp;D, with vacuum technology at our core.</small></span>
+                <img src="./img/site/85260.svg" alt="" aria-hidden="true" />
+              </a>
+              <a href="./technology-solutions.html">
+                <span><strong>Technology Solutions</strong><small>Find ULVAC technology by application: 27 fields from semiconductors to pharmaceuticals.</small></span>
+                <img src="./img/site/85260.svg" alt="" aria-hidden="true" />
+              </a>
+              <a href="#research-development">
+                <span><strong>Research &amp; Development</strong><small>Driving innovation and co-creation with vacuum technology at our core.</small></span>
+                <img src="./img/site/85260.svg" alt="" aria-hidden="true" />
+              </a>
+            </div>
+          </div>
+          <a class="mobile-nav__link" href="#products">Products</a>
+          <a class="mobile-nav__link" href="./news.html">News</a>
+        </div>
+
+        <div class="mobile-nav__utility">
+          <a href="#sustainability">Sustainability</a>
+          <a href="./vacuum-magazine.html">Vacuum Magazine</a>
+          <a href="#investor-relations">Investor Relations</a>
+          <a href="#support">Support</a>
+          <div class="mobile-language">
+            <button
+              class="mobile-language__trigger"
+              type="button"
+              aria-expanded="false"
+              aria-controls="mobile-language-menu"
+            >
+              <span>
+                <img src="./img/site/fb492.svg" alt="" aria-hidden="true" />
+                English
+              </span>
+              <img class="mobile-language__chevron" src="./img/site/47013.svg" alt="" aria-hidden="true" />
+            </button>
+            <div class="mobile-language__menu" id="mobile-language-menu">
+              <p>Language</p>
+              <a class="is-selected" href="#english">English <img src="./img/site/cfca9.svg" alt="" aria-hidden="true" /></a>
+              <a href="#japanese">Japanese</a>
+              <hr />
+              <p>Regional Sites</p>
+              <a href="#china">China</a>
+              <a href="#korea">Korea</a>
+              <a href="#taiwan">Taiwan</a>
+              <a href="#usa">USA</a>
+              <a href="#europe">Europe</a>
+              <a href="#southeast-asia">Southeast Asia</a>
+              <hr />
+              <a class="mobile-language__all" href="#group-companies">
+                All group companies
+                <img src="./img/site/816e2.svg" alt="" aria-hidden="true" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main class="about-page profile-page">
+      <nav class="about-breadcrumb content-shell" aria-label="Breadcrumb"><a href="./index.html">Home</a><img src="./img/about/breadcrumb-right.svg" alt=""><a href="./about.html">About ULVAC</a><img src="./img/about/breadcrumb-right.svg" alt=""><strong aria-current="page">Company Profile</strong></nav>
+      <section class="about-hero profile-hero"><div class="content-shell">
+        <h1 data-profile-reveal>Company Profile</h1>
+        <nav class="about-anchor-nav" aria-label="Company profile sections" data-profile-reveal><a href="#company-profile">Company Profile</a><a href="#management-policy">Management Policy</a><a href="#management-structure">Management Structure</a><a href="#organization">Organization</a><a href="#office-locations">Office Locations</a><a href="#corporate-profile-pdf">Corporate Profile PDF</a></nav>
+      </div></section>
+      <section class="profile-information content-shell" id="company-profile">
+        <h2 data-profile-reveal>Corporate information</h2>
+        <table aria-label="Corporate information"><tbody>
+          <tr data-profile-reveal><th scope="row">Name</th><td class="profile-company-name" tabindex="0">ULVAC, Inc.</td></tr>
+          <tr data-profile-reveal><th scope="row">Trademark</th><td>ULVAC</td></tr>
+          <tr data-profile-reveal><th scope="row">ULVAC Head Office / Plant</th><td>2500 Hagisono, Chigasaki, Kanagawa 253-8543, Japan</td></tr>
+          <tr data-profile-reveal><th scope="row">Established</th><td>August 23, 1952</td></tr>
+          <tr data-profile-reveal><th scope="row">Representative</th><td>Setsuo Iwashita, Chairman and CEO</td></tr>
+          <tr data-profile-reveal><th scope="row">Capital</th><td>JPY 20,873,042,500</td></tr>
+          <tr data-profile-reveal><th scope="row">Number of Employees</th><td>1,483, Consolidated: 5,613 (as of 30th June, 2026)</td></tr>
+          <tr data-profile-reveal><th scope="row">Business Areas</th><td>PlaceholderDevelopment, manufacture, sales, customer support and machinery importing/exporting activities related to vacuum equipment, peripheral devices, vacuum components and materials for the display, semiconductor, electronics, electrics, metals, machinery, automotive, chemical, food and pharmaceutical industries, and for universities and research centers. Research guidance and technical consulting on all aspects of vacuum technology.</td></tr>
+          <tr data-profile-reveal><th scope="row">Principal Shareholders</th><td>PlaceholderThe Master Trust Bank of Japan, Ltd. (Trust Account)<br>Custody Bank of Japan, Ltd. (Trust Account)<br>BBH (LUX) FOR FIDELITY FUNDS-GLOBAL TECHNOLOGY POOL<br>Nippon Life Insurance Company<br>STATE STREET BANK AND TRUST COMPANY 505001<br>JPMorgan Securities Japan Co., Ltd.<br>STATE STREET BANK AND TRUST COMPANY 505103<br>THE BANK OF NEW YORK MELLON 140044<br>JP MORGAN CHASE BANK 385781<br>Mizuho Bank, Ltd.<br>(as of 30th June, 2026)</td></tr>
+          <tr data-profile-reveal><th scope="row">Banks</th><td>Mizuho Bank, Ltd.; Sumitomo Mitsui Banking Corporation; Nippon Life Insurance Company</td></tr>
+        </tbody></table>
+      </section>
+      <section class="profile-panel profile-policy content-shell" id="management-policy">
+        <div data-profile-reveal><h2>Management Policy</h2><p>ULVAC proclaims five management principles:</p></div>
+        <img data-profile-reveal src="./img/profile/management-principles.png" width="680" height="448" alt="Improve customer satisfaction; innovations in production technology; development of original products; free and open-minded organization; enhancing of corporate value.">
+      </section>
+      <section class="profile-panel profile-management content-shell" id="management-structure">
+        <h2 data-profile-reveal>Management Structure</h2>
+        <h3 data-profile-reveal>Directors</h3>
+        <div class="profile-grid">
+          <article data-profile-reveal tabindex="0"><div class="profile-portrait-frame"><div class="profile-portrait profile-portrait--kiyota"></div></div><span>CEO</span> <span>President</span><h4>Junya Kiyota</h4><p>Chief Technology and Innovation Officer</p></article>
+          <article data-profile-reveal tabindex="0"><div class="profile-portrait-frame"><img src="./img/profile/tomoyasu-kondo.png" alt=""></div><span>Director</span><h4>Tomoyasu Kondo</h4><p>Chief Strategy Officer Head of Semiconductor and Advanced Electronics Equipment Business Strategy Division</p></article>
+          <article data-profile-reveal tabindex="0"><div class="profile-portrait-frame"><img src="./img/profile/sadao-aoki.png" alt=""></div><span>Director</span><h4>Sadao Aoki</h4></article>
+          <article data-profile-reveal tabindex="0"><div class="profile-portrait-frame"><div class="profile-portrait profile-portrait--shimada"></div></div><span>Director</span><h4>Tetsuya Shimada</h4></article>
+          <article data-profile-reveal tabindex="0"><div class="profile-portrait-frame"><img src="./img/profile/hiroyuki-nishi.png" alt=""></div><span>External Director</span><h4>Hiroyuki Nishi</h4><p>Chairman &amp; Representative Director of Nissay Credit Guarantee Co., Ltd.</p></article>
+          <article data-profile-reveal tabindex="0"><div class="profile-portrait-frame"><img src="./img/profile/norio-uchida.png" alt=""></div><span>External Director</span><h4>Norio Uchida</h4></article>
+          <article data-profile-reveal tabindex="0"><div class="profile-portrait-frame"><div class="profile-portrait profile-portrait--ishida"></div></div><span>External Director</span><h4>Dr. Kozo Ishida</h4></article>
+          <article data-profile-reveal tabindex="0"><div class="profile-portrait-frame"><img src="./img/profile/yoshimi-nakajima.png" alt=""></div><span>External Director</span><h4>Yoshimi Nakajima</h4></article>
+          <article data-profile-reveal tabindex="0"><div class="profile-portrait-frame"><img src="./img/profile/isao-yamakawa.png" alt=""></div><span>External Director</span><h4>Isao Yamakawa</h4></article>
+        </div>
+        <h3 data-profile-reveal>Auditors</h3>
+        <div class="profile-grid">
+          <article data-profile-reveal tabindex="0"><div class="profile-portrait-frame"><div class="profile-portrait profile-portrait--morijiri"></div></div><span>Auditor</span><h4>Yuji Morijiri</h4></article>
+          <article data-profile-reveal tabindex="0"><div class="profile-portrait-frame"><img src="./img/profile/satohiro-okayama.png" alt=""></div><span>Auditor</span><h4>Satohiro Okayama</h4></article>
+          <article data-profile-reveal tabindex="0"><div class="profile-portrait-frame"><img src="./img/profile/isao-utsunomiya.png" alt=""></div><span>External Auditor</span><h4>Isao Utsunomiya</h4><p>Certified Public Tax Accountant</p></article>
+          <article data-profile-reveal tabindex="0"><div class="profile-portrait-frame"><img src="./img/profile/soya-honda.png" alt=""></div><span>External Auditor</span><h4>Soya Honda</h4><p>Attorney</p></article>
+        </div>
+        <h3 data-profile-reveal>Executive Officers</h3>
+        <div class="profile-grid profile-grid--officers">
+          <article data-profile-reveal tabindex="0"><span>Executive Officer</span><h4>Shinji Takahashi</h4><p>Responsible for Corporate Governance<br>Head of Corporate Planning Division and Legal Division<br>Chairman of ULVAC (CHINA) HOLDING CO., LTD. and ULVAC Automation Technology (Shanghai) Corporation</p></article>
+          <article data-profile-reveal tabindex="0"><span>Executive Officer</span><h4>Yoshiki Iso</h4><p>Responsible for Marketing, Business Strategy and Production Strategy (IT)<br>Chairman of ULVAC (Shenyang) Co., Ltd.</p></article>
+          <article data-profile-reveal tabindex="0"><span>Executive Officer</span><h4>Sadao Aoki</h4><p>Responsible for External Affairs<br>President &amp; Representative Director of ULVAC Techno, Ltd. and ULVAC Sales, Ltd.</p></article>
+          <article data-profile-reveal tabindex="0"><span>Executive Officer</span><h4>Tetsuya Shimada</h4><p>Responsible for Industry &amp; Academia Engagement</p></article>
+          <article data-profile-reveal tabindex="0"><span>External Director</span><h4>Hiroyuki Nishi</h4><p>Responsible for Sales</p></article>
+          <article data-profile-reveal tabindex="0"><span>External Director</span><h4>Dr. Bingjun Yang</h4><p>Head of China Region<br>Director, President &amp; CEO of ULVAC (CHINA) HOLDING CO., LTD.<br>Chairman of ULVAC (Shanghai) Trading Co., Ltd., ULVAC (SUZHOU) CO., LTD. and ULVAC VACUUM EQUIPMENT (SHANGHAI) CO., LTD.</p></article>
+          <article data-profile-reveal tabindex="0"><span>External Director</span><h4>Tung-Jung Wu</h4><p>Head of Taiwan Region<br>Director, President &amp; CEO of ULVAC TAIWAN INC.</p></article>
+          <article data-profile-reveal tabindex="0"><span>External Director</span><h4>Hirohisa Takahashi</h4><p>Responsible for PHI Group<br>President and CEO of ULVAC-PHI, Inc.</p></article>
+          <article data-profile-reveal tabindex="0"><span>External Director</span><h4>Eric Ries</h4><p>Responsible for Growth &amp; Development and M&amp;A<br>President of Americas<br>Head of Europe<br>ULVAC Technologies, Inc. Chairman</p></article>
+        </div>
+      </section>
+      <section class="profile-organization content-shell" id="organization">
+        <div data-profile-reveal><h2>Organization</h2><p>（as of July 1, 2026）</p></div>
+        <a href="./img/profile/organization-chart.png" aria-label="Open full-size organization chart" data-profile-reveal><img src="./img/profile/organization-chart.png" width="1344" height="609" alt="ULVAC organizational structure showing divisions and business units reporting to the CEO"></a>
+      </section>
+      <section class="profile-locations content-shell" id="office-locations">
+        <h2 data-profile-reveal>Office Locations</h2><h3 data-profile-reveal>ULVAC Head Office</h3>
+        <div class="profile-offices"><article data-profile-reveal><h4>ULVAC Head Office / Plant</h4><p>2500 Hagisono, Chigasaki, Kanagawa 253-8543, Japan</p><a class="profile-phone" href="tel:+81467892033">Tel: +81-467-89-2033</a><small>Fax: +81-467-82-9114</small><a class="profile-map" href="https://www.google.com/maps/search/?api=1&amp;query=ULVAC+2500+Hagisono+Chigasaki+Kanagawa" target="_blank" rel="noopener">Google Map</a></article></div>
+        <h3 data-profile-reveal>Office/Factory/Laboratory</h3>
+        <div class="profile-offices">
+          <article data-profile-reveal><h4>Fuji Susono Office</h4><aside>Fuji Susono Factory</aside><p>1220-14 Suyama, Susono, Shizuoka 410-1231, Japan</p><a class="profile-phone" href="tel:+81559981711">Tel: +81-55-998-1711</a><small>Fax: +81-55-998-1759</small><a class="profile-map" href="https://www.google.com/maps/search/?api=1&amp;query=1220-14+Suyama+Susono+Shizuoka" target="_blank" rel="noopener">Google Map</a></article>
+          <article data-profile-reveal><h4>Institute of Advanced Technology</h4><aside>(Fuji Susono)</aside><p>1220-1 Suyama, Susono, Shizuoka 410-1231, Japan</p><a class="profile-phone" href="tel:+81559981555">Tel: +81-55-998-1555</a><small>Fax: +81-55-998-1518</small><a class="profile-map" href="https://www.google.com/maps/search/?api=1&amp;query=1220-1+Suyama+Susono+Shizuoka" target="_blank" rel="noopener">Google Map</a></article>
+          <article data-profile-reveal><h4>Chiba Tomisato Office</h4><aside>Chiba Tomisato Factory</aside><p>10-1 Misawa, Tomisato, Chiba 286-0225, Japan</p><a class="profile-phone" href="tel:+81476906111">Tel: +81-476-90-6111</a><small>Fax: +81-476-91-5561</small><a class="profile-map" href="https://www.google.com/maps/search/?api=1&amp;query=10-1+Misawa+Tomisato+Chiba" target="_blank" rel="noopener">Google Map</a></article>
+        </div>
+      </section>
+      <section class="profile-download content-shell" id="corporate-profile-pdf" data-profile-reveal><div><h2>Corporate Profile 2025-2026 (PDF)</h2><p>Download the ULVAC corporate brochure</p></div><a href="https://www.ulvac.co.jp/en/company/pdf/ULVAC_CorporateProfile_en_2025-2026_2.pdf">Download <img src="./img/profile/download.svg" alt=""></a></section>
+    </main>
+    <footer class="footer">
+      <div class="footer__inner">
+        <img class="footer__logo" src="./img/94890.png" alt="ULVAC" />
+        <nav class="footer__nav" aria-label="Footer navigation">
+          <div>
+            <h2><a href="#">About ULVAC</a></h2>
+            <a href="./about.html">Overview</a><a href="./company-profile.html">Company Profile</a><a href="#">History of ULVAC</a
+            ><a href="#">Group Companies</a><a href="#">Sustainability</a>
+          </div>
+          <div>
+            <h2><a href="#">Business &amp; Products</a></h2>
+            <a href="#">Our Business</a><a href="./technology-overview.html">Technology</a><a href="#">Products</a>
+          </div>
+          <div>
+            <h2><a href="#">Media</a></h2>
+            <a href="./news.html">News</a><a href="./vacuum-magazine.html">Vacuum Magazine</a><a href="#">Investor Relations <img class="footer__external-icon" src="./img/footer-external-link.svg" width="16" height="16" alt="" /></a
+            ><a href="#">Download List</a>
+          </div>
+          <div>
+            <h2><a href="#">Reach Us</a></h2>
+            <a href="#">Contact</a><a href="#">Support</a>
+          </div>
+        </nav>
+        <div class="footer__legal">
+          <p>© 2026 ULVAC, Inc. All Rights Reserved.</p>
+          <nav aria-label="Legal">
+            <a href="#">Privacy Policy</a><a href="#">Terms of Use</a><a href="#">Sitemap</a>
+          </nav>
+        </div>
+      </div>
+    </footer>
+    <script src="./script.js" defer></script>
+    <!-- figma:body-end -->
+  </body>
+</html>

@@ -1,0 +1,71 @@
+.magazine-page .article-section { padding-block: 64px 24px; scroll-margin-top: 145px; }
+.magazine-page #latest { padding-block: 0; }
+.magazine-page .article-section--popular { padding-bottom: 64px; }
+.magazine-page .article-section--series { padding-bottom: 100px; background: #f8f8f8; }
+.magazine-page .article-heading { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 12px; margin-bottom: 32px; }
+.magazine-page .article-heading h2 { margin: 0; color: var(--color-black); font: 700 clamp(28px, 4vw, 48px)/1.3 var(--font-bold); }
+.magazine-page .archive-link { display: inline-flex; align-items: center; gap: 16px; padding: 4px 4px 4px 16px; border-radius: 100px; background: var(--color-primary); color: white; font: 700 18px/1.5 var(--font-bold); text-decoration: none; }
+.magazine-page .article-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.magazine-page .article-card { position: relative; display: flex; flex-direction: column; align-items: flex-start; height: 100%; padding: 32px; border-radius: var(--radius-lg); background: white; color: var(--color-black); text-decoration: none; }
+.magazine-page .article-photo { display: block; position: relative; width: 100%; aspect-ratio: 16 / 9; height: auto; object-fit: cover; overflow: hidden; border-radius: var(--radius-md); background: white; }
+.magazine-page .article-card > .article-photo:first-child { margin-bottom: 24px; }
+.magazine-page .article-photo img { position: absolute; display: block; max-width: none; height: auto; }
+.magazine-page .crop-award img { width: 111.26%; left: -5.36%; top: -21.9%; }
+.magazine-page .crop-discloser img { width: 103.22%; left: -1.61%; top: -65.24%; }
+.magazine-page .crop-certificate img { width: 100%; left: -.27%; top: -43.33%; }
+.magazine-page .crop-classroom img { width: 111.32%; left: -5.66%; top: 28.33%; }
+.magazine-page .crop-publication img { width: 100%; left: -.94%; top: -6.67%; }
+.magazine-page .article-badge { display: inline-block; padding: 4px 16px; color: white; background: var(--color-navy); border-radius: var(--radius-xs); font: 700 16px/24px var(--font-bold); }
+.magazine-page .article-card h3 { margin: 12px 0 0; font: 700 22px/1.32 var(--font-bold); overflow-wrap: anywhere; color: inherit; }
+.magazine-page .article-card time { display: block; margin-top: 8px; color: var(--article-date, var(--color-muted)); font-size: 15px; line-height: 24px; }
+.magazine-page .popular-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(290px, 24%); align-items: start; gap: 16px; }
+.magazine-page .ranked-list { display: grid; gap: 16px; padding: 0; margin: 0; list-style: none; counter-reset: article-rank; }
+.magazine-page .ranked-list li { display: grid; grid-template-columns: 34px minmax(0, 1fr); align-items: center; gap: 8px; counter-increment: article-rank; }
+.magazine-page .ranked-list li::before { content: counter(article-rank); color: var(--color-primary); font: 900 34px/1.3 var(--font-bold); }
+.magazine-page .ranked-card, .magazine-page .series-card { display: grid; align-content: start; align-items: start; grid-template-columns: minmax(0, 26%) minmax(0, 1fr); gap: 16px; }
+.magazine-page .ranked-card { padding: 24px; }
+.magazine-page .series-card { grid-template-columns: minmax(0, 28.4%) minmax(0, 1fr); }
+.magazine-page :is(.ranked-card, .series-card) > .article-photo:first-child { margin: 0; }
+.magazine-page .popular-tags { padding: 32px; color: white; background: #083153; border-radius: var(--radius-lg); }
+.magazine-page .popular-tags h3 { margin: 0 0 16px; font: 700 34px/1.3 var(--font-bold); }
+.magazine-page .tag-list { display: flex; flex-wrap: wrap; gap: 8px; }
+.magazine-page .tag-list a { position: relative; display: inline-flex; align-items: center; padding: 5px 15px; border: 1px solid var(--color-line); border-radius: 100px; color: var(--color-body); background: white; font-size: 15px; line-height: 24px; text-decoration: none; }
+.magazine-page :is(.archive-link, .article-card, .tag-list a)::after { content: ''; display: block; width: 32px; height: 32px; border-radius: 50%; background: white url('../img/site/header-contact-chevron.svg') center / 20px no-repeat; }
+.magazine-page .archive-link:is(:hover, :focus-visible)::after { background-color: white; background-image: url('../img/news-row-chevron.svg'); }
+.magazine-page :is(.article-card, .tag-list a)::after { position: absolute; right: 8px; bottom: 6px; width: 24px; height: 24px; opacity: var(--arrow-opacity, 0); pointer-events: none; }
+.magazine-page .tag-list a::after { right: 3px; bottom: auto; width: 14px; height: 14px; background-size: 11px; }
+.magazine-page .article-section a:focus-visible { outline: 3px solid var(--color-primary-dark); outline-offset: 3px; }
+.magazine-page .article-section a:is(:focus-visible, :active) { --arrow-opacity: 1; --article-date: white; color: white; background-color: var(--color-primary-dark); }
+.magazine-page .article-section .tag-list a:is(:focus-visible, :active) { padding-inline: 6px 24px; }
+@media (hover: hover) {
+  .magazine-page .article-section a:hover { --arrow-opacity: 1; --article-date: white; color: white; background-color: var(--color-primary-dark); }
+  .magazine-page .article-section .tag-list a:hover { padding-inline: 6px 24px; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .magazine-page .article-section a { transition: background-color var(--duration-fast), color var(--duration-fast); }
+}
+@media (max-width: 1024px) {
+  .magazine-page .article-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .magazine-page .article-card, .magazine-page .popular-tags { padding: 24px; }
+  .magazine-page .popular-layout { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 767px) {
+  .magazine-page .article-section { padding-block: 40px 12px; scroll-margin-top: 80px; }
+  .magazine-page .article-heading { align-items: center; margin-bottom: 16px; }
+  .magazine-page .article-heading h2 { font-size: 28px; }
+  .magazine-page .article-grid { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+  .magazine-page .article-card { padding: 16px 16px 32px; }
+  .magazine-page .article-card > .article-photo:first-child { margin-bottom: 16px; }
+  .magazine-page .article-card h3 { font-size: 19px; }
+  .magazine-page .article-badge { padding: 3px 10px; font-size: 14px; }
+  .magazine-page .ranked-list li { grid-template-columns: 22px minmax(0, 1fr); gap: 4px; }
+  .magazine-page .ranked-list li::before { font-size: 24px; }
+  .magazine-page .ranked-card { gap: 10px; padding-inline: 8px; }
+  .magazine-page .popular-tags { padding: 20px; }
+  .magazine-page .popular-tags h3 { font-size: 26px; }
+  .magazine-page .tag-list a { min-height: 44px; }
+  .magazine-page .article-section--series { padding-bottom: 48px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .magazine-page .article-section [data-magazine-reveal] { opacity: 1 !important; transform: none !important; transition: none !important; animation: none !important; }
+}
