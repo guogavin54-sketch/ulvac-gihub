@@ -607,6 +607,11 @@ button.header__language {
   gap: var(--space-4) var(--space-2);
 }
 
+/* Keep secondary hover layers in sync with the card's color transition. */
+:where(#business .business-card, #news .news-card, #magazine .magazine-item) {
+  --duration-normal: 80ms;
+}
+
 .business-card {
   position: relative;
   min-height: 210px;
@@ -619,8 +624,8 @@ button.header__language {
   font-family: var(--font-bold);
   font-size: 18px;
   transition:
-    color var(--duration-normal) var(--ease-out),
-    background var(--duration-normal) var(--ease-out),
+    color 80ms var(--ease-out),
+    background-color 80ms var(--ease-out),
     border-color var(--duration-normal) var(--ease-out);
 }
 
@@ -763,9 +768,11 @@ button.header__language {
   padding: var(--story-padding);
   background: var(--color-white);
   border-radius: var(--radius-lg);
-  transition:
-    background var(--duration-normal) var(--ease-out),
-    box-shadow var(--duration-normal) var(--ease-out);
+}
+
+.news-card,
+.magazine-item {
+  transition: background-color 80ms var(--ease-out), box-shadow var(--duration-normal) var(--ease-out);
 }
 
 .news-card:hover,
@@ -822,7 +829,7 @@ button.header__language {
 .news-card time,
 .magazine-item h3,
 .magazine-item time {
-  transition: color var(--duration-normal) var(--ease-out);
+  transition: color 80ms var(--ease-out);
 }
 
 .news-card:hover h3,
@@ -895,10 +902,7 @@ button.header__language {
   justify-content: center;
   padding: var(--story-padding) clamp(64px, 6vw, 84px) var(--story-padding) var(--story-padding);
   border-radius: var(--radius-lg);
-  transition:
-    background var(--duration-normal) var(--ease-out),
-    box-shadow var(--duration-normal) var(--ease-out);
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .magazine-item:hover,
